@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/11/27 15:36:04 by djoye            ###   ########.fr       */
+/*   Updated: 2019/11/27 19:35:26 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,17 @@ typedef struct	s_head
     int         count_lem;
     int         count_room;
     int         count_route;
+    char        *instruction;
     t_room      *start;
     t_room      *end;
+    char        **matrix;
+    char        **split;
 }               t_head;
 
 char            *ft_strjoin(char const *s1, char const *s2);
 int             ft_strequ(char const *s1, char const *s2);
-t_head          *add_head(char *str);
+t_head          *add_head(t_head *head);
+t_head		    *map(t_head *head);
+char		    **ft_strsplit(char const *s, char c);
 
 #endif
