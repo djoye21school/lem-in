@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem-in.h"
+#include "lem_in.h"
 
 int		ft_strequ(char const *s1, char const *s2)
 {
@@ -55,7 +55,7 @@ char	*ft_strchr(const char *s, int c)
 {
 	char	*arr;
 
-	if (!*s && !s)
+	if (!s && !*s)
 		return (NULL);
 	arr = (char*)s;
 	while (*arr != c)
