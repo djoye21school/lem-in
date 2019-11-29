@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/11/28 18:34:37 by djoye            ###   ########.fr       */
+/*   Updated: 2019/11/29 12:55:15 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,14 @@
 # include <sys/uio.h>
 # include <stdio.h>
 
-typedef struct	s_room
+typedef struct	    s_room
 {
-    int         id;
-    char        *name;
-	int			x;
-	int			y;
-}               t_room;
+    int             id;
+    char            *name;
+	int			    x;
+	int			    y;
+    struct s_room   *next;
+}                   t_room;
 
 typedef struct	s_head
 {
