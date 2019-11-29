@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/11/29 12:55:15 by djoye            ###   ########.fr       */
+/*   Updated: 2019/11/29 18:02:09 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,9 @@ typedef struct	s_head
     int         count_lem;
     int         count_room;
     int         count_route;
+    int         count_instr;
     char        *instruction;
+    t_room      *first;
     t_room      *start;
     t_room      *end;
     char        **matrix;
