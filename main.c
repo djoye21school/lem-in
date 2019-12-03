@@ -128,14 +128,12 @@ int			main(int ac, char **av)
 		else
 			room = add_room(head, room, head->split[i], -1);
 	}
-	
 	/*
 	while (head->first)
 	{
 		printf("%s\n", head->first->name);
 		head->first = head->first->next;
 	}*/
-	
 	i = 0;
 	printf("s01234e\n");
 	while (head->matrix[i] != 0)
