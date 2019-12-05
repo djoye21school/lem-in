@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/11/29 21:34:55 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/05 15:20:06 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			find_chr(char *str, int i, char c)
 t_room		*add_room(t_head *head, t_room *room, char *str, int flag)
 {
 	int			i;
-	static int	id;
+	static int	id = 0;
 	int			l;
 
 	if (!room && (room = (t_room*)malloc(sizeof(t_room))))
@@ -88,7 +88,7 @@ t_room		*add_connect(t_head *head, t_room *room, char *str)
 	tmp = head->first;
 	while(tmp && !ft_strequ(tmp->name , second))
 		tmp = tmp->next;
-	//printf("connect: %d | %d\n", id, tmp->id);
+	printf("connect: %d | %d\n", id, tmp->id);
 	head->matrix[id][tmp->id] = '1';
 	head->matrix[tmp->id][id] = '1';
 	//printf("%s\n%d\n%d\n", room->name, room->x, room->y);
@@ -101,6 +101,7 @@ int			main(int ac, char **av)
 	t_head	*head;
 	int		i;
 	t_room	*room;
+	t_routes *routes;
 
 	if (ac != 2 || (fd = open(av[1], O_RDONLY)) < 0 || read(fd, NULL, 0) == -1)
 		return (write(1, "usage: not valid file\n", 21) - 21);
@@ -112,7 +113,7 @@ int			main(int ac, char **av)
 	head->split = ft_strsplit(head->instruction, '\n');
 	//printf("%dlemm\n", head->count_lem);
 	i = -1;
-	while (++i < head->count_instr - 1)
+	while (head->split[++i])
 	{
 		printf("%s\n", head->split[i]);
 		if (i == 0)
@@ -134,13 +135,37 @@ int			main(int ac, char **av)
 		printf("%s\n", head->first->name);
 		head->first = head->first->next;
 	}*/
+<<<<<<< HEAD
+	
+
+=======
+>>>>>>> 23245a4097d7fcf55e65cfa7441eb891320c80bb
 	i = 0;
-	printf("s01234e\n");
+	printf("  s01234e\n");
 	while (head->matrix[i] != 0)
 	{
-		printf("%s\n", head->matrix[i]);
+		printf("%d|%s\n", i == 0 ? 0 : i - 1, head->matrix[i]);
 		i++;
 	}
+	i = 0;
+	routes = route_line(head);
+	t_route *tmp;
+	while(routes->start[i])
+	{	
+		tmp = routes->start[i];
+		//printf("%s\n", routes->start[i]->room->name);
+		printf("%s", tmp->prev->room->name);
+		while(tmp)
+		{
+			printf("->%s", tmp->room->name);
+		//	printf("\n%s\n", tmp->prev->room->name);
+			tmp = tmp->next;
+		}
+		printf("\n");
+		i++;
+	}
+	count_step(routes);
+	lem_go(head, routes);
 	return (close(fd));
 }
 
