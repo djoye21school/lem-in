@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./lem_in_viz.h"
+#include "./include/lem_in_viz.h"
 
 /*char	*output_lem_in()
 {
@@ -41,22 +41,22 @@ int		main(int ac, char **av)
 
 }*/
 
-int main(int argc, char* argv[])
+/*int main(int argc, char **argv)
 {
 	SDL_Surface *screen; // even with SDL2, we can still bring ancient code back
 	SDL_Window *window;
 	SDL_Surface *image;
 
-	SDL_Init(SDL_INIT_VIDEO); // init video
+	SDL_Init(SDL_INIT_EVERYTHING); // init video
 
 	// create the window like normal
-	window = SDL_CreateWindow("SDL2 Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, 0);
+	window = SDL_CreateWindow("SDL2 Example",  100, 100, 640, 480, SDL_WINDOW_SHOWN);
 
 	// but instead of creating a renderer, we can draw directly to the screen
 	screen = SDL_GetWindowSurface(window);
 
 	// let's just show some classic code for reference
-	image = SDL_LoadBMP("box.bmp"); // loads image
+	image = SDL_LoadBMP("./pic/a.bmp"); // loads image
 	SDL_BlitSurface(image, NULL, screen, NULL); // blit it to the screen
 	SDL_FreeSurface(image);
 
@@ -64,8 +64,43 @@ int main(int argc, char* argv[])
 	SDL_UpdateWindowSurface(window);
 
 	// show image for 2 seconds
-	SDL_Delay(2000);
+	SDL_Delay(10000);
 	SDL_DestroyWindow(window);
+	SDL_Quit();
+	return 0;
+}*/
+
+int main(int argc, char* argv[])
+{
+	SDL_Window *window;                    // Declare a pointer
+
+	SDL_Init(SDL_INIT_VIDEO);              // Initialize SDL2
+
+	// Create an application window with the following settings:
+	window = SDL_CreateWindow(
+			"An SDL2 window",                  // window title
+			SDL_WINDOWPOS_UNDEFINED,           // initial x position
+			SDL_WINDOWPOS_UNDEFINED,           // initial y position
+			640,                               // width, in pixels
+			480,                               // height, in pixels
+			SDL_WINDOW_SHOWN                 // flags - see below
+	);
+
+	// Check that the window was successfully created
+	if (window == NULL) {
+		// In the case that the window could not be made...
+		printf("Could not create window: %s\n", SDL_GetError());
+		return 1;
+	}
+
+	// The window is open: could enter program loop here (see SDL_PollEvent())
+
+	SDL_Delay(4000);  // Pause execution for 3000 milliseconds, for example
+
+	// Close and destroy the window
+	SDL_DestroyWindow(window);
+
+	// Clean up
 	SDL_Quit();
 	return 0;
 }
