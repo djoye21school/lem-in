@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/05 17:10:39 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/06 18:02:51 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,11 +181,11 @@ t_routes		*lem_go(t_head *head, t_routes *routes)
 				if (tmp->lem_id != 0 && tmp->next->lem_id == 0)
 				{
 					tmp->next->lem_id = tmp->lem_id;
-					check = tmp->next->lem_id;
 					printf("L%d-%s ", tmp->next->lem_id, tmp->next->room->name);
 					tmp->lem_id = 0;
 					if (ft_strequ("end", tmp->next->room->name))
 						tmp->next->lem_id = 0;
+					break ;
 				}
 				tmp = tmp->next;
 			}
