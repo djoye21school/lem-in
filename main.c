@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/06 20:16:34 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/07 13:22:41 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,24 @@ int				find_chr(char *str, int i, char c)
 	return (i);
 }
 
+int				check_replay(t_head *head, char *str, int x, int y)
+{
+	t_room 		*tmp;
+	int			c;
+
+	c = 0;
+	tmp = head->first;
+	while (tmp && tmp->name)
+	{
+		if (ft_strequ(tmp->name, str) || (tmp->x == x && tmp->y == y))
+			c++;
+		if (c > 1 || head->count_lem <= 0)
+			exit(write(1, "error\n", 6) - 5);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
 t_room			*add_room(t_head *head, char *str, int flag)
 {
 	int			i;
@@ -55,9 +73,10 @@ t_room			*add_room(t_head *head, char *str, int flag)
 	else
 	{
 		room = head->first;
-		while (room)
+		while (room->next)
 			room = room->next;
-		room = (t_room*)malloc(sizeof(t_room));
+		room->next = (t_room*)malloc(sizeof(t_room));
+		room = room->next;
 	}
 	i = find_chr(str, 0, ' ');
 	room->name = ft_strsub(str, 0, i);
@@ -65,11 +84,12 @@ t_room			*add_room(t_head *head, char *str, int flag)
 	l = find_chr(str, i + 1, ' ');
 	room->x = ft_atoi(ft_strsub(str, i + 1, l));
 	room->y = ft_atoi(ft_strsub(str, l + 1, ft_strlen(str)));
+	check_replay(head, room->name, room->x, room->y);
 	room->next = NULL;
 	if (head->end && head->end->id)
 		head->end->id = id + 1;
 	head->count_room = id + 2;
-	printf("id:%d | name: %s | x = %d | y = %d\n | count_room = %d\n", room->id, room->name, room->x, room->y, head->count_room);
+	printf("id:%d | name: %s | x = %d | y = %d\n", room->id, room->name, room->x, room->y);
 	return (room);
 }
 
