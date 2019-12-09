@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/09 14:04:28 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/09 16:10:59 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ t_routes		*route_line(t_head *head)
 	t_room		*room;
 	int			c;
 
-	i = 0;
+	i = -1;
 	c = 0;
-	while (head->matrix[0][i])
-		if (head->matrix[0][i++] == '1')
+	while (++i < head->count_room)
+		if (head->matrix[0][i] > 0)
 			c++;
 	routes = (t_routes*)malloc(sizeof(t_routes));
 	routes->start = (t_route**)malloc(sizeof(t_route*) * (c + 1));
 	routes->step = (int*)malloc(sizeof(int) * (c + 1));
 	i = 0;
 	c = 0;
-	while (head->matrix[0][i])
+	while (i < head->count_room)
 	{
-		if (head->matrix[0][i] == '1')
+		if (head->matrix[0][i] > 0)
 		{
 			room = head->first;
 			while (room)
@@ -64,11 +64,11 @@ t_routes		*route_traffic(t_head *head, t_routes *routes, int i, int c, int flag)
 	tmp = routes->start[c];
 	tmp->prev = (t_route*)malloc(sizeof(t_route));
 	tmp->prev->room = head->start;
-	while (head->matrix[l] && head->matrix[l][i])
+	while (l < head->count_room && i < head->count_room)
 	{
 		if (ft_strequ(tmp->room->name, "end"))
 			return (routes);
-		if (head->matrix[l][i] == '1' && tmp->prev->room->id != i && tmp->prev->room->id != l)
+		if (head->matrix[l][i] > 0 && tmp->prev->room->id != i && tmp->prev->room->id != l)
 		{
 			room = head->start;
 			while (room)

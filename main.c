@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/09 14:03:14 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/09 16:43:19 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int				find_chr(char *str, int i, char c)
 
 int				check_replay(t_head *head, char *str, int x, int y)
 {
-	t_room 		*tmp;
+	t_room		*tmp;
 	int			c;
 
 	c = 0;
@@ -77,8 +77,8 @@ t_room			*add_room(t_head *head, char *str, int flag)
 			room = room->next;
 		room->next = (t_room*)malloc(sizeof(t_room));
 		room = room->next;
-		room->next = NULL;
 	}
+	room->next = NULL;
 	i = find_chr(str, 0, ' ');
 	room->name = ft_strsub(str, 0, i);
 	room->id = (flag != 0 && flag != 1) ? ++id : flag;
@@ -118,8 +118,8 @@ t_head			*add_connect(t_head *head, char *str)
 	if (!ft_strequ(tmp->name, second))
 		exit(write(1, "error\n", 6) - 6);
 	printf("connect: %d | %d\n", id, tmp->id);
-	head->matrix[id][tmp->id] = '1';
-	head->matrix[tmp->id][id] = '1';
+	head->matrix[id][tmp->id] = head->count_room;
+	head->matrix[tmp->id][id] = head->count_room;
 	printf("%s->%s\n", first, second);
 	return (head);
 }
@@ -132,6 +132,7 @@ int				main(int ac, char **av)
 	t_routes	*routes;
 	t_route		*tmp;
 	t_room		*temp;
+	int			l;
 
 	if (ac != 2 || (fd = open(av[1], O_RDONLY)) < 0 || read(fd, NULL, 0) == -1)
 		return (write(1, "usage: not valid file\n", 21) - 21);
@@ -153,16 +154,23 @@ int				main(int ac, char **av)
 		temp = temp->next;
 	}
 	printf("e\n");
-	i = 0;
+	l = 0;
 	temp = head->first;
-	while (head->matrix[i] != 0)
+	while (l < head->count_room)
 	{
 		if (!ft_strequ("end", temp->name))
 			printf("%c|", temp->name[0] - 1);
-		else printf("e|");
+		else
+			printf("e|");
 		temp = temp->next;
-		printf("%s\n", head->matrix[i]);
-		i++;
+		i = 0;
+		while (i < head->count_room)
+		{
+			printf("%d", head->matrix[l][i]);
+			i++;
+		}
+		printf("\n");
+		l++;
 	}
 	i = 0;
 	routes = route_line(head);
@@ -180,7 +188,7 @@ int				main(int ac, char **av)
 	}
 	count_step(routes);
 	lem_go(head, routes);
-	return (close(fd));
+	exit(close(fd));
 }
 
 t_head			*add_data(t_head *head)
@@ -199,10 +207,12 @@ t_head			*add_data(t_head *head)
 			head->end = add_room(head, head->split[++i], 1);
 		else if (head->split[i][find_chr(head->split[i], 0, '-')] == '-')
 			add_connect(head, head->split[i]);
-		else if (head->split[i][find_chr(head->split[i], 0, '#')] == '#')
+		else if (head->split[i][find_chr(head->split[i], 0, ' ')] == ' ')
+			add_room(head, head->split[i], -1);
+		else if (head->split[i][0] == '#')
 			continue ;
 		else
-			add_room(head, head->split[i], -1);
+			exit(write(1, "error\n", 6) - 6);
 	}
 	return (head);
 }
@@ -212,16 +222,16 @@ t_head			*map(t_head *head)
 	int			l;
 	int			c;
 
-	head->matrix = (char**)malloc(sizeof(char*) * (head->count_room + 1));
+	head->matrix = (int**)malloc(sizeof(int*) * (head->count_room + 1));
 	l = -1;
 	while (++l < head->count_room)
 	{
 		c = -1;
-		head->matrix[l] = (char*)malloc(sizeof(char) * (head->count_room + 1));
+		head->matrix[l] = (int*)malloc(sizeof(int) * (head->count_room + 1));
 		while (++c < head->count_room)
-			head->matrix[l][c] = '0';
-		head->matrix[l][c] = '\0';
+		{
+			head->matrix[l][c] = 0;
+		}
 	}
-	head->matrix[l] = 0;
 	return (head);
 }

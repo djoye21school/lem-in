@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/06 20:05:58 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/09 15:50:53 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	    s_head
     t_room          *first;
     t_room          *start;
     t_room          *end;
-    char            **matrix;
+    int             **matrix;
     char            **split;
 }                   t_head;
 

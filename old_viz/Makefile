@@ -25,7 +25,7 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) -o $(NAME) -I $(INC_LIB) -L ../libft/ -lft -L ./lib/ -l SDL2-2.0.0 $(OBJ)
 
-%.o: src/%.c
+%.o: %.c
 	$(CC) $(FLAGS) -I $(INC) -o $@ -c $<
 
 clean :

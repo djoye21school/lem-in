@@ -12,6 +12,7 @@
 
 #include "../include/lem_in_viz.h"
 
+
 /*char	*output_lem_in()
 {
 	char *str;
@@ -94,29 +95,82 @@ int		main(int ac, char **av)
 		SDL_Quit();
 }*/
 
-int		main(int ac, char **av)
+int         	main()
 {
-	ac++;
-	av++;
-	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER) != 0)
+	int			run;
+	SDL_Event	e;
+	SDL_Window	*win;
+	SDL_Surface	*ant;
+	SDL_Surface	*surf;
+	SDL_Rect	rect;
+	int			speed;
+	SDL_Keycode	before;
+
+	run = 1;
+	rect.x = 0;
+	rect.y = 0;
+	rect.h = 100;
+	rect.w = 100;
+	speed = 1;
+	SDL_Init(SDL_INIT_EVERYTHING);
+	win = SDL_CreateWindow("Dota 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1920, 1080, SDL_WINDOW_SHOWN);
+	surf = SDL_GetWindowSurface(win);
+	ant = SDL_LoadBMP("../pic/2.bmp");
+
+	while (run)
 	{
-		write(1, "error\n", 6);
-		return (0);
+		while (SDL_PollEvent(&e))
+		{
+			if (e.type == SDL_QUIT)
+				run = 0;
+			if (e.type == SDL_KEYDOWN)
+			{
+				before = e.key.keysym.sym;
+				if (e.key.keysym.sym == SDLK_ESCAPE)
+					run = 0;
+				else if (e.key.keysym.sym == SDLK_LEFT)
+				{
+					if (before == SDLK_LEFT)
+						speed++;
+					else
+						speed = 1;
+					rect.x -= speed;
+				}
+				else if (e.key.keysym.sym == SDLK_UP)
+				{
+					if (before == SDLK_UP)
+						speed++;
+					else
+						speed = 1;
+					rect.y -= speed;
+				}
+				else if (e.key.keysym.sym == SDLK_DOWN)
+				{
+					if (before == SDLK_DOWN)
+						speed++;
+					else
+						speed = 1;
+					rect.y += speed;
+				}
+				else if (e.key.keysym.sym == SDLK_RIGHT)
+				{
+					if (before == SDLK_RIGHT)
+						speed++;
+					else
+						speed = 1;
+					rect.x += speed;
+				}
+			}
+		}
+		SDL_FillRect(surf ,NULL, 0x404040);
+		SDL_BlitScaled(ant, NULL, surf, &rect);
+		SDL_UpdateWindowSurface(win);
 	}
-	SDL_Window *win = SDL_CreateWindow("HELLO", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, 0);
-	if (!win)
-	{
-		write(1, "error\n", 6);
-		SDL_Quit();
-		return (0);
-	}
-	//SDL_Delay(5000);
-	while (1)
-		//SDL_Delay(5000);
+	SDL_FreeSurface(surf);
 	SDL_DestroyWindow(win);
 	SDL_Quit();
+	return (0);
 }
-
 
 
 
