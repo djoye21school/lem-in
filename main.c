@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/07 13:22:41 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/09 14:03:14 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int				check_replay(t_head *head, char *str, int x, int y)
 
 	c = 0;
 	tmp = head->first;
-	while (tmp && tmp->name)
+	while (tmp && tmp->next)
 	{
 		if (ft_strequ(tmp->name, str) || (tmp->x == x && tmp->y == y))
 			c++;
@@ -77,6 +77,7 @@ t_room			*add_room(t_head *head, char *str, int flag)
 			room = room->next;
 		room->next = (t_room*)malloc(sizeof(t_room));
 		room = room->next;
+		room->next = NULL;
 	}
 	i = find_chr(str, 0, ' ');
 	room->name = ft_strsub(str, 0, i);
@@ -85,7 +86,6 @@ t_room			*add_room(t_head *head, char *str, int flag)
 	room->x = ft_atoi(ft_strsub(str, i + 1, l));
 	room->y = ft_atoi(ft_strsub(str, l + 1, ft_strlen(str)));
 	check_replay(head, room->name, room->x, room->y);
-	room->next = NULL;
 	if (head->end && head->end->id)
 		head->end->id = id + 1;
 	head->count_room = id + 2;
