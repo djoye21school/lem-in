@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/06 19:16:33 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/09 14:04:28 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,29 +170,27 @@ t_routes		*lem_go(t_head *head, t_routes *routes)
 	i = 1;
 	while (i <= head->count_lem || if_free_route(routes))
 	{
-		c = 0;
-		while (routes->start[c])
+		c = -1;
+		while (routes->start[++c])
 		{
 			tmp = routes->start[c];
 			while (tmp->next)
-			{
 				if (tmp->lem_id != 0 && tmp->next->lem_id == 0)
-				{
-					tmp->next->lem_id = tmp->lem_id;
-					printf("L%d-%s ", tmp->next->lem_id, tmp->next->room->name);
-					tmp->lem_id = 0;
-					if (ft_strequ("end", tmp->next->room->name))
-						tmp->next->lem_id = 0;
 					break ;
-				}
-				tmp = tmp->next;
-			}
-			if (routes->start[c]->lem_id == 0 && i <= head->count_lem)
-			{
-				routes->start[c]->lem_id = i++;
+				else
+					tmp = tmp->next;
+			if (tmp->next == NULL && (tmp->lem_id = 0) == 0)
+				tmp = tmp->prev;
+			while (tmp && tmp->next && tmp->prev)
+				if (tmp->lem_id != 0 && tmp->next->lem_id == 0 &&
+				(tmp->next->lem_id = tmp->lem_id) &&
+				printf("L%d-%s ", tmp->next->lem_id, tmp->next->room->name))
+					tmp->lem_id = 0;
+				else
+					tmp = tmp->prev;
+			if (routes->start[c]->lem_id == 0 && i <= head->count_lem &&
+			(routes->start[c]->lem_id = i++))
 				printf("L%d-%s ", routes->start[c]->lem_id, routes->start[c]->room->name);
-			}
-			c++;
 		}
 		printf("\n");
 	}
