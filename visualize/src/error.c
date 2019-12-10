@@ -12,7 +12,7 @@
 
 #include "../include/lem_in_viz.h"
 
-int 	error_st(int i, t_sdl *yep)
+void 	error_st(int i, t_sdl *yep)
 {
 	const char *str;
 
@@ -26,10 +26,22 @@ int 	error_st(int i, t_sdl *yep)
 void	quit(t_sdl *yep)
 {
 	SDL_DestroyTexture(yep->start);
+	SDL_DestroyTexture(yep->fon);
 	SDL_DestroyTexture(yep->ant);
 	SDL_DestroyTexture(yep->end);
 	SDL_DestroyTexture(yep->house);
 	SDL_DestroyRenderer(yep->ren);
 	SDL_DestroyWindow(yep->win);
 	SDL_Quit();
+}
+
+void	error_img(int i, t_sdl *yep)
+{
+	const char *str;
+
+	str = IMG_GetError();
+	printf("%s\n", str);
+	if (i)
+		quit(yep);
+	exit(0);
 }

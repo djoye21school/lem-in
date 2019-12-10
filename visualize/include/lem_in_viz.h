@@ -39,7 +39,9 @@ typedef struct		s_sdl
 	SDL_Rect		destr;
 }					t_sdl;
 
-int 	error_st(int i, t_sdl *yep);
+void 	error_st(int i, t_sdl *yep);
+void	error_img(int i, t_sdl *yep);
 void	quit(t_sdl *yep);
+
 
 #endif

@@ -38,34 +38,57 @@ int         	main(int ac, char **av)
 	int			run;
 	SDL_Event	e;
 
-	SDL_Rect	rect;
+
 	int			speed;
 	SDL_Keycode	before;
 
 	run = 1;
-	rect.x = 0;
-	rect.y = 0;
-	rect.h = 100;
-	rect.w = 100;
 	speed = 1;
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 		error_st(0, &yep);
+
+	if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG)
+		error_img(0, &yep);
+
 	if (!(yep.win = SDL_CreateWindow("VLADIMIRRRRRRR  SUPER GOOD", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
 			1720, 1080, SDL_WINDOW_SHOWN)))
 		error_st(1, &yep);
-	yep.ren = SDL_CreateRenderer(yep.win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-
-
-	if (!(yep.surf = SDL_LoadBMP("../pic/trav.bmp")))
+	if (!(yep.ren = SDL_CreateRenderer(yep.win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
 		error_st(1, &yep);
-	if (!(yep.fon = SDL_CreateTextureFromSurface(yep.ren, yep.surf)))
+
+//	if (!(yep.surf = SDL_LoadBMP("../pic/trav.bmp")))
+//		error_st(1, &yep);
+//	if (!(yep.fon = SDL_CreateTextureFromSurface(yep.ren, yep.surf)))
+//		error_st(1, &yep);
+//	SDL_FreeSurface(yep.surf);
+
+	if (!(yep.fon = IMG_LoadTexture(yep.ren, "../pic/trav.bmp")))
+		error_img(1, &yep);
+
+	if (!(yep.ant = IMG_LoadTexture(yep.ren, "../pic/ant.png")))
+		error_img(1, &yep);
+
+	if (SDL_RenderClear(yep.ren) != 0)
 		error_st(1, &yep);
-	SDL_FreeSurface(yep.surf);
 
-	SDL_RenderClear(yep.ren);
-	SDL_RenderCopy(yep.ren, yep.fon, NULL, NULL);
+//	if (SDL_RenderCopy(yep.ren, yep.fon, NULL, NULL) != 0)
+//		error_st(1, &yep);
 
-	SDL_RenderPresent(yep.ren);
+	int w;
+	int h;
+	SDL_QueryTexture(yep.ant, NULL, NULL, &w, &h);
+	int x = 1720 / 2 - w / 2;
+	int y = 1080 / 2 - h / 2;
+
+	//int x = 100;
+	//int y = 100;
+	yep.destr.x = x;
+	yep.destr.y = y;
+	yep.destr.w = w;
+	yep.destr.h = h;
+//	SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr));
+
+//	SDL_RenderPresent(yep.ren);
 	while (run)
 	{  
 		while (SDL_PollEvent(&e))
@@ -83,7 +106,7 @@ int         	main(int ac, char **av)
 						speed++;
 					else
 						speed = 1;
-					rect.x -= speed;
+					yep.destr.x -= speed;
 				}
 				else if (e.key.keysym.sym == SDLK_UP)
 				{
@@ -91,7 +114,7 @@ int         	main(int ac, char **av)
 						speed++;
 					else
 						speed = 1;
-					rect.y -= speed;
+					yep.destr.y -= speed;
 				}
 				else if (e.key.keysym.sym == SDLK_DOWN)
 				{
@@ -99,7 +122,7 @@ int         	main(int ac, char **av)
 						speed++;
 					else
 						speed = 1;
-					rect.y += speed;
+					yep.destr.y += speed;
 				}
 				else if (e.key.keysym.sym == SDLK_RIGHT)
 				{
@@ -107,16 +130,17 @@ int         	main(int ac, char **av)
 						speed++;
 					else
 						speed = 1;
-					rect.x += speed;
+					yep.destr.x += speed;
 				}
 			}
+			if (SDL_RenderCopy(yep.ren, yep.fon, NULL, NULL) != 0)
+				error_st(1, &yep);
+			if (SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr)) != 0)
+				error_st(1, &yep);
 		}
-
+		SDL_RenderPresent(yep.ren);
 	}
-	SDL_DestroyTexture(yep.fon);
-	SDL_DestroyRenderer(yep.ren);
-	SDL_DestroyWindow(yep.win);
-	SDL_Quit();
+	quit(&yep);
 	return (0);
 }
 

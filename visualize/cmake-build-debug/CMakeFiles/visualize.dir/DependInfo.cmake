@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/sdoughnu/Desktop/lem_in/visualize/src/error.c" "/Users/sdoughnu/Desktop/lem_in/visualize/cmake-build-debug/CMakeFiles/visualize.dir/src/error.c.o"
-  "/Users/sdoughnu/Desktop/lem_in/visualize/src/main_viz.c" "/Users/sdoughnu/Desktop/lem_in/visualize/cmake-build-debug/CMakeFiles/visualize.dir/src/main_viz.c.o"
+  "/Users/sdoughnu/Desktop/lem-in/visualize/src/error.c" "/Users/sdoughnu/Desktop/lem-in/visualize/cmake-build-debug/CMakeFiles/visualize.dir/src/error.c.o"
+  "/Users/sdoughnu/Desktop/lem-in/visualize/src/main_viz.c" "/Users/sdoughnu/Desktop/lem-in/visualize/cmake-build-debug/CMakeFiles/visualize.dir/src/main_viz.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
