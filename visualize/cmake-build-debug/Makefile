@@ -123,6 +123,33 @@ visualize/fast:
 	$(MAKE) -f CMakeFiles/visualize.dir/build.make CMakeFiles/visualize.dir/build
 .PHONY : visualize/fast
 
+src/error.o: src/error.c.o
+
+.PHONY : src/error.o
+
+# target to build an object file
+src/error.c.o:
+	$(MAKE) -f CMakeFiles/visualize.dir/build.make CMakeFiles/visualize.dir/src/error.c.o
+.PHONY : src/error.c.o
+
+src/error.i: src/error.c.i
+
+.PHONY : src/error.i
+
+# target to preprocess a source file
+src/error.c.i:
+	$(MAKE) -f CMakeFiles/visualize.dir/build.make CMakeFiles/visualize.dir/src/error.c.i
+.PHONY : src/error.c.i
+
+src/error.s: src/error.c.s
+
+.PHONY : src/error.s
+
+# target to generate assembly for a file
+src/error.c.s:
+	$(MAKE) -f CMakeFiles/visualize.dir/build.make CMakeFiles/visualize.dir/src/error.c.s
+.PHONY : src/error.c.s
+
 src/main_viz.o: src/main_viz.c.o
 
 .PHONY : src/main_viz.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... visualize"
+	@echo "... src/error.o"
+	@echo "... src/error.i"
+	@echo "... src/error.s"
 	@echo "... src/main_viz.o"
 	@echo "... src/main_viz.i"
 	@echo "... src/main_viz.s"

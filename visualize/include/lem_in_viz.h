@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include "SDL.h"
+# include "SDL_image.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/types.h>
@@ -24,16 +25,21 @@ typedef struct		s_sdl
 {
 	SDL_Window		*win;
 	SDL_Renderer	*ren;
-	SDL_Surface		*bmp;
-	SDL_Texture		*bg;
-	SDL_Texture		*ant;
+	SDL_Surface		*surf;
+
+	SDL_Texture 	*fon;
+	SDL_Texture		*start;
+	SDL_Texture 	*ant;
 	SDL_Texture		*end;
 	int				size_sqr;
 	int				win_x;
 	int				win_y;
-	SDL_Texture		*sqr;
+	SDL_Texture		*house;
 	SDL_Rect		srcr;
 	SDL_Rect		destr;
 }					t_sdl;
+
+int 	error_st(int i, t_sdl *yep);
+void	quit(t_sdl *yep);
 
 #endif

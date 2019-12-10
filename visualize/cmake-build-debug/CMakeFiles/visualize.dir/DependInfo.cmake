@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/sdoughnu/Desktop/lem_in/visualize/src/error.c" "/Users/sdoughnu/Desktop/lem_in/visualize/cmake-build-debug/CMakeFiles/visualize.dir/src/error.c.o"
   "/Users/sdoughnu/Desktop/lem_in/visualize/src/main_viz.c" "/Users/sdoughnu/Desktop/lem_in/visualize/cmake-build-debug/CMakeFiles/visualize.dir/src/main_viz.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
@@ -11,6 +12,7 @@ set(CMAKE_C_COMPILER_ID "AppleClang")
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "/Users/sdoughnu/Library/Frameworks/SDL2.framework/Headers"
+  "/Users/sdoughnu/Library/Frameworks/SDL2_image.framework/Headers"
   )
 
 # Targets to which this target links.

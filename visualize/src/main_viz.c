@@ -32,76 +32,12 @@ int		main(int ac, char **av)
 	}
 }*/
 
-/*int		main()
+int         	main(int ac, char **av)
 {
-	int scr_wi = 100;
-	int scr_hei = 100;
-	t_sdl p;
-
-//	p->win = SDL_CreateWindow("HI!", scr_wi, scr_hei, )
-
-}*/
-
-/*int main(int argc, char **argv)
-{
-	SDL_Surface *screen;
-	SDL_Window *window;
-	SDL_Surface *image;
-
-	SDL_Init(SDL_INIT_EVERYTHING);
-
-	window = SDL_CreateWindow("SDL2 Example",  100, 100, 640, 480, SDL_WINDOW_SHOWN);
-	screen = SDL_GetWindowSurface(window);
-	image = SDL_LoadBMP("a.bmp");
-	SDL_BlitSurface(image, NULL, screen, NULL);
-	SDL_FreeSurface(image);
-
-
-	SDL_UpdateWindowSurface(window);
-
-	SDL_Delay(2000);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
-	return 0;
-}*/
-
-/*int		main(int ac, char **av)
-{
-	t_sdl v;
-
-
-	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
-		return (write(1, "error\n", 6));
-
-	if ((v.win = SDL_CreateWindow("Hello World!", 0, 0, 640, 480, SDL_WINDOW_ALLOW_HIGHDPI)) == NULL)
-		return (write(1, "error\n", 6));
-
-		if ((v.ren = SDL_CreateRenderer(v.win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)) == NULL)
-			return (write(1, "error\n", 6));
-		if ((v.bmp = SDL_LoadBMP("./a.bmp")) == NULL)
-			return (write(1, "error\n", 6));
-		v.bg = SDL_CreateTextureFromSurface(v.ren, v.bmp);
-		SDL_FreeSurface(v.bmp);
-		if (v.bg == NULL)
-			return (write(1, "error\n", 6));
-		SDL_RenderClear(v.ren);
-		SDL_RenderCopy(v.ren, v.bg, NULL, NULL);
-		SDL_RenderPresent(v.ren);
-
-		SDL_Delay(5000);
-		SDL_DestroyTexture(v.bg);
-		SDL_DestroyRenderer(v.ren);
-		SDL_DestroyWindow(v.win);
-		SDL_Quit();
-}*/
-
-int         	main()
-{
+	t_sdl		yep;
 	int			run;
 	SDL_Event	e;
-	SDL_Window	*win;
-	SDL_Surface	*ant;
-	SDL_Surface	*surf;
+
 	SDL_Rect	rect;
 	int			speed;
 	SDL_Keycode	before;
@@ -112,13 +48,26 @@ int         	main()
 	rect.h = 100;
 	rect.w = 100;
 	speed = 1;
-	SDL_Init(SDL_INIT_EVERYTHING);
-	win = SDL_CreateWindow("Dota 2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1920, 1080, SDL_WINDOW_SHOWN);
-	surf = SDL_GetWindowSurface(win);
-	ant = SDL_LoadBMP("../pic/2.bmp");
+	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
+		error_st(0, &yep);
+	if (!(yep.win = SDL_CreateWindow("VLADIMIRRRRRRR  SUPER GOOD", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+			1720, 1080, SDL_WINDOW_SHOWN)))
+		error_st(1, &yep);
+	yep.ren = SDL_CreateRenderer(yep.win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
+
+	if (!(yep.surf = SDL_LoadBMP("../pic/trav.bmp")))
+		error_st(1, &yep);
+	if (!(yep.fon = SDL_CreateTextureFromSurface(yep.ren, yep.surf)))
+		error_st(1, &yep);
+	SDL_FreeSurface(yep.surf);
+
+	SDL_RenderClear(yep.ren);
+	SDL_RenderCopy(yep.ren, yep.fon, NULL, NULL);
+
+	SDL_RenderPresent(yep.ren);
 	while (run)
-	{
+	{  
 		while (SDL_PollEvent(&e))
 		{
 			if (e.type == SDL_QUIT)
@@ -162,16 +111,14 @@ int         	main()
 				}
 			}
 		}
-		SDL_FillRect(surf ,NULL, 0x404040);
-		SDL_BlitScaled(ant, NULL, surf, &rect);
-		SDL_UpdateWindowSurface(win);
+
 	}
-	SDL_FreeSurface(surf);
-	SDL_DestroyWindow(win);
+	SDL_DestroyTexture(yep.fon);
+	SDL_DestroyRenderer(yep.ren);
+	SDL_DestroyWindow(yep.win);
 	SDL_Quit();
 	return (0);
 }
-
 
 
 

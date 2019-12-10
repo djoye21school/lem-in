@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/visualize.dir/src/error.c.o"
   "CMakeFiles/visualize.dir/src/main_viz.c.o"
   "visualize"
   "visualize.pdb"
