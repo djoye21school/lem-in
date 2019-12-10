@@ -67,6 +67,8 @@ int         	main(int ac, char **av)
 
 	if (!(yep.ant = IMG_LoadTexture(yep.ren, "../pic/ant.png")))
 		error_img(1, &yep);
+	if (!(yep.house = IMG_LoadTexture(yep.ren, "../pic/house.png")))
+		error_img(1, &yep);
 
 	if (SDL_RenderClear(yep.ren) != 0)
 		error_st(1, &yep);
@@ -84,10 +86,17 @@ int         	main(int ac, char **av)
 	//int y = 100;
 	yep.destr.x = x;
 	yep.destr.y = y;
-	yep.destr.w = w;
-	yep.destr.h = h;
-//	SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr));
+	yep.destr.w = w / 3;
+	yep.destr.h = h / 3;
 
+	SDL_QueryTexture(yep.house, NULL, NULL, &w, &h);
+	yep.srcr.x = 100;
+	yep.srcr.y = 100;
+	yep.srcr.w = w / 4;
+	yep.srcr.h = h / 4;
+//	SDL_QueryTexture(yep.house, NULL, NULL, )
+
+//	SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr));
 //	SDL_RenderPresent(yep.ren);
 	while (run)
 	{  
@@ -134,6 +143,8 @@ int         	main(int ac, char **av)
 				}
 			}
 			if (SDL_RenderCopy(yep.ren, yep.fon, NULL, NULL) != 0)
+				error_st(1, &yep);
+			if (SDL_RenderCopy(yep.ren, yep.house, NULL, &(yep.srcr)) != 0)
 				error_st(1, &yep);
 			if (SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr)) != 0)
 				error_st(1, &yep);
