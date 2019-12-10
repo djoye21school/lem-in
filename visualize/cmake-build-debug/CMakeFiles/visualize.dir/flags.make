@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu99
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/sdoughnu/Library/Frameworks/SDL2.framework/Headers 
+C_INCLUDES = -I/Users/sdoughnu/Library/Frameworks/SDL2.framework/Headers -I/Users/sdoughnu/Library/Frameworks/SDL2_image.framework/Headers 
 

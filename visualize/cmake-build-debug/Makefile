@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sdoughnu/Desktop/lem_in/visualize
+CMAKE_SOURCE_DIR = /Users/sdoughnu/Desktop/lem-in/visualize
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sdoughnu/Desktop/lem_in/visualize/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/sdoughnu/Desktop/lem-in/visualize/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sdoughnu/Desktop/lem_in/visualize/cmake-build-debug/CMakeFiles /Users/sdoughnu/Desktop/lem_in/visualize/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sdoughnu/Desktop/lem-in/visualize/cmake-build-debug/CMakeFiles /Users/sdoughnu/Desktop/lem-in/visualize/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sdoughnu/Desktop/lem_in/visualize/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sdoughnu/Desktop/lem-in/visualize/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,6 +123,33 @@ visualize/fast:
 	$(MAKE) -f CMakeFiles/visualize.dir/build.make CMakeFiles/visualize.dir/build
 .PHONY : visualize/fast
 
+src/error.o: src/error.c.o
+
+.PHONY : src/error.o
+
+# target to build an object file
+src/error.c.o:
+	$(MAKE) -f CMakeFiles/visualize.dir/build.make CMakeFiles/visualize.dir/src/error.c.o
+.PHONY : src/error.c.o
+
+src/error.i: src/error.c.i
+
+.PHONY : src/error.i
+
+# target to preprocess a source file
+src/error.c.i:
+	$(MAKE) -f CMakeFiles/visualize.dir/build.make CMakeFiles/visualize.dir/src/error.c.i
+.PHONY : src/error.c.i
+
+src/error.s: src/error.c.s
+
+.PHONY : src/error.s
+
+# target to generate assembly for a file
+src/error.c.s:
+	$(MAKE) -f CMakeFiles/visualize.dir/build.make CMakeFiles/visualize.dir/src/error.c.s
+.PHONY : src/error.c.s
+
 src/main_viz.o: src/main_viz.c.o
 
 .PHONY : src/main_viz.o
@@ -159,6 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... visualize"
+	@echo "... src/error.o"
+	@echo "... src/error.i"
+	@echo "... src/error.s"
 	@echo "... src/main_viz.o"
 	@echo "... src/main_viz.i"
 	@echo "... src/main_viz.s"
