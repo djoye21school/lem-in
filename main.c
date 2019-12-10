@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/09 16:43:19 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/10 20:15:09 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,37 @@ int				main(int ac, char **av)
 		printf("\n");
 		l++;
 	}
+	
+	printf("\n");
+	printf("  ");
+	temp = head->first;
+	while (temp)
+	{
+		if (!ft_strequ("end", temp->name))
+			printf("%c", temp->name[0]);
+		temp = temp->next;
+	}
+	printf("e\n");
+	upd_map(head);
+	temp = head->first;
+	l = 0;
+	while (l < head->count_room)
+	{
+		if (!ft_strequ("end", temp->name))
+			printf("%c|", temp->name[0] - 1);
+		else
+			printf("e|");
+		temp = temp->next;
+		i = 0;
+		while (i < head->count_room)
+		{
+			printf("%d", head->matrix[l][i]);
+			i++;
+		}
+		printf("\n");
+		l++;
+	}
+
 	i = 0;
 	routes = route_line(head);
 	while (routes->start[i])
