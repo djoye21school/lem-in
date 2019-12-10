@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/09 16:10:59 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/10 20:19:56 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,4 +195,66 @@ t_routes		*lem_go(t_head *head, t_routes *routes)
 		printf("\n");
 	}
 	return (routes);
+}
+
+int				min_val(t_head *head, int l, int c)
+{
+	int			min_l;
+	int			min_c;
+	int			mem_l;
+
+	if (l == 0 || c == 0)
+		return (0);
+	mem_l = l;
+	min_l = head->count_room;
+	l = 0;
+	while (l < head->count_room && c < head->count_room - 1)
+	{
+		if (head->matrix[l][c] > 0 && min_l > head->matrix[l][c])
+			min_l = head->matrix[l][c];
+		l++;
+	}
+	min_c = head->count_room;
+
+	l = mem_l;
+	c = 0;
+	while (c < head->count_room && l < head->count_room - 1)
+	{
+		if (head->matrix[l][c] > 0 && min_c > head->matrix[l][c])
+			min_c = head->matrix[l][c];
+		c++;
+	}
+	return (min_l < min_c ? min_l : min_c);
+}
+
+t_head			*upd_map(t_head *head)
+{
+	int			l;
+	int			c;
+	int			flag;
+
+	l = 0;
+	flag = 1;
+	c = 0;
+	while (l < head->count_room)
+	{
+		c = 0;
+		while (c < head->count_room)
+		{
+			if (head->matrix[l][c] > 0)
+			{
+				head->matrix[l][c] = min_val(head, l, c) + 1;
+				/*
+				if (flag == 1 && (i = -1))
+					flag = 0;
+				else if ((l = -1))
+					flag = 1;
+					*/
+			}
+			c++;
+		}
+		l++;
+		//flag == 1 ? l++ : i++;
+	}
+	return (head);
 }

@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/09 15:50:53 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/10 19:45:43 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ t_routes		    *count_step(t_routes *routes);
 t_routes		    *lem_go(t_head *head, t_routes *routes);
 void			    print_lem_position(t_routes *routes);
 t_head		        *map(t_head *head);
+t_head			    *upd_map(t_head *head);
 
 #endif
