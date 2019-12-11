@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/10 20:19:56 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/11 20:11:12 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ t_routes		*count_step(t_routes *routes)
 			i++;
 		}
 		routes->step[c] = i;
-		printf("%d | %s | %d\n", c, routes->start[c]->room->name, i);
+		//printf("%d | %s | %d\n", c, routes->start[c]->room->name, i);
 		c++;
 	}
 	return (routes);
@@ -231,30 +231,16 @@ t_head			*upd_map(t_head *head)
 {
 	int			l;
 	int			c;
-	int			flag;
 
 	l = 0;
-	flag = 1;
 	c = 0;
 	while (l < head->count_room)
 	{
-		c = 0;
-		while (c < head->count_room)
-		{
+		c = -1;
+		while (++c < head->count_room)
 			if (head->matrix[l][c] > 0)
-			{
 				head->matrix[l][c] = min_val(head, l, c) + 1;
-				/*
-				if (flag == 1 && (i = -1))
-					flag = 0;
-				else if ((l = -1))
-					flag = 1;
-					*/
-			}
-			c++;
-		}
 		l++;
-		//flag == 1 ? l++ : i++;
 	}
 	return (head);
 }
