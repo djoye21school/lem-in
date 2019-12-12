@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/11 20:11:12 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/12 20:33:52 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ t_routes		*route_line(t_head *head)
 	while (++i < head->count_room)
 		if (head->matrix[0][i] > 0)
 			c++;
-	routes = (t_routes*)malloc(sizeof(t_routes));
+	routes = head->routes;
+	
 	routes->start = (t_route**)malloc(sizeof(t_route*) * (c + 1));
 	routes->step = (int*)malloc(sizeof(int) * (c + 1));
 	i = 0;
@@ -227,20 +228,30 @@ int				min_val(t_head *head, int l, int c)
 	return (min_l < min_c ? min_l : min_c);
 }
 
-t_head			*upd_map(t_head *head)
+int				upd_map(t_head *head)
 {
 	int			l;
 	int			c;
+	int			min;
+	int			i;
 
 	l = 0;
 	c = 0;
+	i = 0;
 	while (l < head->count_room)
 	{
 		c = -1;
 		while (++c < head->count_room)
-			if (head->matrix[l][c] > 0)
-				head->matrix[l][c] = min_val(head, l, c) + 1;
+			if (head->matrix[l][c] > (min = min_val(head, l, c)))
+			{
+				if (head->matrix[l][c] > min + 1)
+				{
+					printf("m = %d, l = %d, c = %d, min = %d", head->matrix[l][c], l, c, min);
+					i++;
+				}
+				head->matrix[l][c] =  min + 1;
+			}
 		l++;
 	}
-	return (head);
+	return (i);
 }
