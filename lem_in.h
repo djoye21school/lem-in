@@ -6,14 +6,14 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/10 19:45:43 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/12 20:35:49 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 1000000
 
 # include "./libft/libft.h"
 # include <string.h>
@@ -34,20 +34,6 @@ typedef struct	    s_room
     struct s_room   *next;
 }                   t_room;
 
-typedef struct	    s_head
-{
-    int             count_lem;
-    int             count_room;
-    int             count_route;
-    int             count_instr;
-    char            *instruction;
-    t_room          *first;
-    t_room          *start;
-    t_room          *end;
-    int             **matrix;
-    char            **split;
-}                   t_head;
-
 typedef struct      s_route
 {
     int             lem_id;
@@ -60,8 +46,28 @@ typedef struct      s_route
 typedef struct      s_routes
 {
     int             *step;
+    int             *id_route;
     t_route         **start;
 }                   t_routes;
+
+typedef struct	    s_head
+{
+    int             count_lem;
+    int             count_room;
+    int             count_route;
+    int             count_instr;
+    char            *instruction;
+    t_room          *first;
+    t_room          *start;
+    t_room          *end;
+    int             **matrix;
+    char            **split;
+    t_routes        *routes;
+}                   t_head;
+
+
+
+
 
 t_head              *add_data(t_head *head);
 t_room		        *add_room(t_head *head, char *str, int flag);
@@ -73,6 +79,9 @@ t_routes		    *count_step(t_routes *routes);
 t_routes		    *lem_go(t_head *head, t_routes *routes);
 void			    print_lem_position(t_routes *routes);
 t_head		        *map(t_head *head);
-t_head			    *upd_map(t_head *head);
+int 			    upd_map(t_head *head);
+int				    min_val(t_head *head, int l, int c);
+
+int				recurse(t_head *head, int l, int c, int i, int flag);
 
 #endif
