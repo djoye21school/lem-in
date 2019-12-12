@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/11 20:13:04 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/12 20:33:46 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,9 @@ t_head			*add_connect(t_head *head, char *str)
 	if (!ft_strequ(tmp->name, second))
 		exit(write(1, "error\n", 6) - 6);
 	//printf("connect: %d | %d\n", id, tmp->id);
-	head->matrix[id][tmp->id] = head->count_room;
-	head->matrix[tmp->id][id] = head->count_room;
+	
+	head->matrix[id][tmp->id] = 1; //min_val(head, id, tmp->id) + 1;
+	head->matrix[tmp->id][id] = 1; //min_val(head, tmp->id, id) + 1;;
 	//printf("%s->%s\n", first, second);
 	return (head);
 }
@@ -145,11 +146,12 @@ int				main(int ac, char **av)
 	head->end = NULL;
 	head->matrix = NULL;
 	head->split = ft_strsplit(head->instruction, '\n');
+	head->routes = (t_routes*)malloc(sizeof(t_routes));
 
 	add_data(head);
 	temp = head->first;
 	str = (char*)malloc(sizeof(char) * head->count_room);
-	/*
+	
 	i = 0;
 
 	while (temp)
@@ -173,43 +175,29 @@ int				main(int ac, char **av)
 		printf("\n");
 		l++;
 	}
-	*/
-	
-	upd_map(head);
-	//upd_map(head);
+	recurse(head, 0, 0, 0, 1);
+
 /*
-	printf("\n");
-	printf("  %s\n", str);
-	temp = head->first;
-	l = 0;
-	while (l < head->count_room)
-	{
-		printf("%c|", str[l]);
-		i = -1;
-		while (++i < head->count_room)
-			printf("%d", head->matrix[l][i]);
+	while (upd_map(head))
 		printf("\n");
-		l++;
-	}
-	//exit (0);
-		printf("\n");
-	printf("  %s\n", str);
-	upd_map(head);
-	temp = head->first;
-	l = 0;
-	while (l < head->count_room)
-	{
-		printf("%c|", str[l]);
-		i = -1;
-		while (++i < head->count_room)
-			printf("%d", head->matrix[l][i]);
-		printf("\n");
-		l++;
-	}
-	exit (0);
-	*/
-	routes = route_line(head);
 	
+		printf("\n");
+		printf("  %s\n", str);
+		temp = head->first;
+		l = 0;
+		while (l < head->count_room)
+		{
+			printf("%c|", str[l]);
+			i = -1;
+			while (++i < head->count_room)
+				printf("%d", head->matrix[l][i]);
+			printf("\n");
+			l++;
+		}
+	
+	
+	routes = route_line(head);*/
+	exit (0);
 	i = 0;
 	while (routes->start[i])
 	{
@@ -243,12 +231,12 @@ t_head			*add_data(t_head *head)
 			head->start = add_room(head, head->split[++i], 0);
 		else if (ft_strequ("##end", head->split[i]))
 			head->end = add_room(head, head->split[++i], 1);
+		else if (head->split[i][0] == '#')
+			continue ;
 		else if (head->split[i][find_chr(head->split[i], 0, ' ')] == ' ')
 			add_room(head, head->split[i], -1);
 		else if (head->split[i][find_chr(head->split[i], 0, '-')] == '-')
 			add_connect(head, head->split[i]);
-		else if (head->split[i][0] == '#')
-			continue ;
 		else
 			exit(write(1, "error\n", 6) - 6);
 	}
@@ -270,4 +258,42 @@ t_head			*map(t_head *head)
 			head->matrix[l][c] = 0;
 	}
 	return (head);
+}
+
+int				recurse(t_head *head, int l, int c, int i, int flag)
+{
+	t_route		*tmp;
+	t_room		*room;
+	int			id;
+
+	while (l < head->count_room && c < head->count_room)
+	{
+			if ((l == head->count_room - 1 || c == head->count_room - 1) && head->matrix[l][c] > 0)
+			{
+				i++;
+				return (1);
+			}
+			if (recurce(head, l, c, i, flag))
+			{
+				if (!head->routes->start[i])
+					head->routes->start[i] = (t_route*)malloc(sizeof(t_route));
+				tmp = head->routes->start[i];
+				while (tmp)
+					tmp = tmp->next;
+			id = flag == 1 ? l : c; 
+			room = head->first;
+			while (room)
+				if (room->id == id)
+					break ;
+			tmp = room;
+			tmp->next = NULL;			
+				if (flag == 1 && (i = -1))
+					flag = 0;
+				else if ((l = -1))
+					flag = 1;				
+				return (1);
+			}
+			flag == 1 ? l++ : i++;
+	}
+	return (0);
 }
