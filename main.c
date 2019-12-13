@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/12 20:33:46 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/13 19:53:43 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_head			*read_file(t_head *head, int fd)
 	char		buf[BUFF_SIZE + 1];
 	int			len;
 	char		*tmp;
+
 
 	while ((len = read(fd, buf, BUFF_SIZE)))
 	{
@@ -64,6 +65,7 @@ t_room			*add_room(t_head *head, char *str, int flag)
 	static int	id = 0;
 	int			l;
 	t_room		*room;
+	char		*tmp;
 
 	if (!head->first)
 	{
@@ -83,9 +85,21 @@ t_room			*add_room(t_head *head, char *str, int flag)
 	room->name = ft_strsub(str, 0, i);
 	room->id = (flag != 0 && flag != 1) ? ++id : flag;
 	l = find_chr(str, i + 1, ' ');
-	room->x = ft_atoi(ft_strsub(str, i + 1, l));
-	room->y = ft_atoi(ft_strsub(str, l + 1, ft_strlen(str)));
-	//check_replay(head, room->name, room->x, room->y);
+	if (ft_str_is_numeric(tmp = ft_strsub(str, i + 1, (l - i - 1)))
+		|| (tmp[0] == '-' && ft_str_is_numeric(tmp + 1)))
+	{
+		room->x = ft_atoi(tmp);
+		free(tmp);
+	}
+		else exit(write(1, "error\n", 6) - 6);
+	if (ft_str_is_numeric(tmp = ft_strsub(str, l + 1, ft_strlen(str) - l - 1))
+	|| (tmp[0] == '-' && ft_str_is_numeric(tmp + 1)))
+	{
+		room->y = ft_atoi(tmp);
+		free (tmp);
+	}
+			else exit(write(1, "error\n", 6) - 6);
+	check_replay(head, room->name, room->x, room->y);
 	if (head->end && head->end->id)
 		head->end->id = id + 1;
 	head->count_room = id + 2;
@@ -118,9 +132,10 @@ t_head			*add_connect(t_head *head, char *str)
 	if (!ft_strequ(tmp->name, second))
 		exit(write(1, "error\n", 6) - 6);
 	//printf("connect: %d | %d\n", id, tmp->id);
-	
-	head->matrix[id][tmp->id] = 1; //min_val(head, id, tmp->id) + 1;
-	head->matrix[tmp->id][id] = 1; //min_val(head, tmp->id, id) + 1;;
+	free (first);
+	free (second);
+	head->matrix[id][tmp->id] = min_val(head, id, tmp->id) + 1;
+	head->matrix[tmp->id][id] = min_val(head, tmp->id, id) + 1;
 	//printf("%s->%s\n", first, second);
 	return (head);
 }
@@ -137,7 +152,8 @@ int				main(int ac, char **av)
 	char		*str;
 
 	if (ac != 2 || (fd = open(av[1], O_RDONLY)) < 0 || read(fd, NULL, 0) == -1)
-		return (write(1, "usage: not valid file\n", 21) - 21);
+		if (!(ac == 1 && fd == 0))
+			exit(write(1, "usage: not valid file\n", 21) - 21);
 	head = (t_head*)malloc(sizeof(t_head));
 	head->instruction = NULL;
 	read_file(head, fd);
@@ -176,8 +192,8 @@ int				main(int ac, char **av)
 		l++;
 	}
 	recurse(head, 0, 0, 0, 1);
-
 /*
+
 	while (upd_map(head))
 		printf("\n");
 	
@@ -194,10 +210,10 @@ int				main(int ac, char **av)
 			printf("\n");
 			l++;
 		}
-	
-	
-	routes = route_line(head);*/
+	*/
 	exit (0);
+	routes = route_line(head);
+	
 	i = 0;
 	while (routes->start[i])
 	{
@@ -260,6 +276,8 @@ t_head			*map(t_head *head)
 	return (head);
 }
 
+
+
 int				recurse(t_head *head, int l, int c, int i, int flag)
 {
 	t_route		*tmp;
@@ -273,7 +291,7 @@ int				recurse(t_head *head, int l, int c, int i, int flag)
 				i++;
 				return (1);
 			}
-			if (recurce(head, l, c, i, flag))
+			if (recurse(head, flag == 1 ? ++l : l, flag == 0 ? ++c : c, i, flag))
 			{
 				if (!head->routes->start[i])
 					head->routes->start[i] = (t_route*)malloc(sizeof(t_route));
@@ -282,11 +300,11 @@ int				recurse(t_head *head, int l, int c, int i, int flag)
 					tmp = tmp->next;
 			id = flag == 1 ? l : c; 
 			room = head->first;
-			while (room)
-				if (room->id == id)
-					break ;
-			tmp = room;
-			tmp->next = NULL;			
+				while (room)
+					if (room->id == id)
+						break ;
+				tmp->room = room;
+				tmp->next = NULL;			
 				if (flag == 1 && (i = -1))
 					flag = 0;
 				else if ((l = -1))
