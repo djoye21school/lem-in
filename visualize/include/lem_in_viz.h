@@ -20,6 +20,7 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
+# include "../libft/libft.h"
 
 typedef struct		s_sdl
 {
@@ -39,9 +40,35 @@ typedef struct		s_sdl
 	SDL_Rect		destr;
 }					t_sdl;
 
+typedef struct		s_stack
+{
+	char 			*name;
+	unsigned		i;
+	long 			x;
+	long 			y;
+	float 			dx;
+	float 			dy;
+	struct s_stack	*next;
+}					t_stack;
+
+typedef struct		s_path
+{
+	int				ant;
+	t_stack			**arr;
+	t_stack			start;
+	t_stack 		end;
+}					t_path;
+
+
+void	error_inlem(char *str);
 void 	error_st(int i, t_sdl *yep);
 void	error_img(int i, t_sdl *yep);
 void	quit(t_sdl *yep);
 
+char 	*ants(char *str, int *ant);
+char 	*add_rooms(t_path *pat, char *str);
+char 	*skip_comm(char *str, int *ant);
+
+char    *strchr_until(const char *s, int c);
 
 #endif

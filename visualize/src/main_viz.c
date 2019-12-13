@@ -12,27 +12,62 @@
 
 #include "../include/lem_in_viz.h"
 
+char 	*is_valid(char *str, t_path *pat)
+{
+	t_stack *one;
+	t_stack	*two;
 
-/*char	*output_lem_in()
+	str = ants(str, &(pat->ant));
+	if (pat->ant <= 0 || (!(str = add_rooms(pat, str)))) // && !str
+		return (NULL);
+}
+
+
+char	*output_lem_in(void)
 {
 	char *str;
+	char *tmp;
+	char *del;
 
-	while (read())
+	if ((tmp = ft_strnew(100000)))
+		return (NULL);
+	str = NULL;
+	while (read(0, tmp, 100000) > 0)
+	{
+		del = str;
+		str = ft_strjoin(str, tmp);
+		del ? ft_strdel(&del) : NULL;
+		ft_bzero(tmp, 100000);
+	}
+	ft_strdel(&tmp);
+	return (str);
+}
+void	init_lem(t_path **pat)
+{
+	(*pat)->start.name = NULL;
+	(*pat)->end.name = NULL;
+	(*pat)->arr = NULL;
+	(*pat)->ant = 0;
 }
 
 int		main(int ac, char **av)
 {
-	char *str;
+	char	*str;
+	char 	*s;
+	t_sdl	*yep;
+	t_path	*pat;
 
-	str = output_lem_in();
+	if (!(str = output_lem_in()))
+		error_inlem(str);
 	if (!ft_strcmp("Error\n", str))
-	{
-		ft_strdel(&str);
-		return (write(2, "Error\n", 6));
-	}
-}*/
+		error_inlem(str);
+	init_lem(&pat);
+	if (!(s = is_valid(str, pat)))
+		error_inlem(str);
 
-int         	main(int ac, char **av)
+}
+
+/*int         	main(int ac, char **av)
 {
 	t_sdl		yep;
 	int			run;
@@ -64,6 +99,8 @@ int         	main(int ac, char **av)
 
 	if (!(yep.fon = IMG_LoadTexture(yep.ren, "../pic/trav.bmp")))
 		error_img(1, &yep);
+	SDL_SetRenderTarget(yep.ren, yep.fon);
+
 
 	if (!(yep.ant = IMG_LoadTexture(yep.ren, "../pic/ant.png")))
 		error_img(1, &yep);
@@ -94,6 +131,7 @@ int         	main(int ac, char **av)
 	yep.srcr.y = 100;
 	yep.srcr.w = w / 4;
 	yep.srcr.h = h / 4;
+	printf("%d\n %d", yep.destr.x, yep.destr.y);
 //	SDL_QueryTexture(yep.house, NULL, NULL, )
 
 //	SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr));
@@ -130,7 +168,7 @@ int         	main(int ac, char **av)
 					if (before == SDLK_DOWN)
 						speed++;
 					else
-						speed = 1;
+					speed = 1;
 					yep.destr.y += speed;
 				}
 				else if (e.key.keysym.sym == SDLK_RIGHT)
@@ -142,19 +180,20 @@ int         	main(int ac, char **av)
 					yep.destr.x += speed;
 				}
 			}
-			if (SDL_RenderCopy(yep.ren, yep.fon, NULL, NULL) != 0)
-				error_st(1, &yep);
-			if (SDL_RenderCopy(yep.ren, yep.house, NULL, &(yep.srcr)) != 0)
-				error_st(1, &yep);
-			if (SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr)) != 0)
-				error_st(1, &yep);
+				if (SDL_RenderCopy(yep.ren, yep.fon, NULL, NULL) != 0)
+					error_st(1, &yep);
+				if (SDL_RenderCopy(yep.ren, yep.house, NULL, &(yep.srcr)) != 0)
+					error_st(1, &yep);
+				if (SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr)) != 0)
+					error_st(1, &yep);
+
+
 		}
 		SDL_RenderPresent(yep.ren);
 	}
 	quit(&yep);
 	return (0);
-}
-
+}*/
 
 
 

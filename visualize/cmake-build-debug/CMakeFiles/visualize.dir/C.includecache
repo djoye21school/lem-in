@@ -21,6 +21,18 @@ sys/types.h
 -
 sys/stat.h
 -
+../libft/libft.h
+/Users/sdoughnu/Desktop/lem-in/visualize/libft/libft.h
+
+/Users/sdoughnu/Desktop/lem-in/visualize/libft/libft.h
+unistd.h
+-
+stdlib.h
+-
+
+/Users/sdoughnu/Desktop/lem-in/visualize/src/error.c
+../include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lem-in/visualize/include/lem_in_viz.h
 
 /Users/sdoughnu/Desktop/lem-in/visualize/src/main_viz.c
 ../include/lem_in_viz.h
