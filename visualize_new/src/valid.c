@@ -12,7 +12,7 @@
 
 #include "../include/lem_in_viz.h"
 
-int 	strcmp_until(char s1, char s2)
+int 	strcmp_until(char *s1, char *s2)
 {
 	while (*s1 && *s2)
 	{
@@ -64,7 +64,7 @@ char 	*skip_comm(char *str, int *ant)
 
 char 	*ants(char *str, int *ant)
 {
-	if (!(str = skip_comm(str, *ant)))
+	if (!(str = skip_comm(str, ant)))
 		return (NULL);
 	*ant = ft_atoi(str);
 	while (*str && *str != '\n')

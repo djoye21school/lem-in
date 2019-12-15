@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/visualize.dir/src/main_viz.c.o"
   "CMakeFiles/visualize.dir/src/error.c.o"
-  "visualize.pdb"
+  "CMakeFiles/visualize.dir/src/main_viz.c.o"
   "visualize"
+  "visualize.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

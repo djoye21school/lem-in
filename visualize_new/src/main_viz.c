@@ -20,8 +20,8 @@ char 	*is_valid(char *str, t_path *pat)
 	str = ants(str, &(pat->ant));
 	if (pat->ant <= 0 || !str || (!(str = add_arr_room(pat, str)))) // && !str
 		return (NULL);
+	return (str);
 }
-
 
 char	*output_lem_in(void)
 {
@@ -67,7 +67,7 @@ int		main(int ac, char **av)
 	if (!(s = is_valid(str, pat)))
 		error_inlem(str);
 	printf("%s\n", s);
-	exit(0);
+	return (0);
 }
 
 

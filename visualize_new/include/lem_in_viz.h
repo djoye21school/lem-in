@@ -14,14 +14,14 @@
 # define LEM_IN_VIZ_H
 
 # include <stdlib.h>
-//# include "SDL.h"
-//# include "SDL_image.h"
+# include "SDL.h"
+# include "SDL_image.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include "../libft/libft.h"
-/*
+
 typedef struct		s_sdl
 {
 	SDL_Window		*win;
@@ -39,7 +39,7 @@ typedef struct		s_sdl
 	SDL_Rect		srcr;
 	SDL_Rect		destr;
 }					t_sdl;
-*/
+
 typedef struct		s_stack
 {
 	char 			*name;
@@ -78,7 +78,7 @@ char 	*is_start(char *str, t_path *pat);
 char	*skip_com2(char *str);
 
 char 	*skip_text(char *str);
-int 	strcmp_until(char s1, char s2);
+int 	strcmp_until(char *s1, char *s2);
 
 int 	find_repeat(t_path *pat, char *str);
 int 	strcmp_name(t_stack *old, char *str, char s);

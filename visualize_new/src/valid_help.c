@@ -37,6 +37,7 @@ char	*skip_com2(char *str)
 		else
 			return (str);
 	}
+	return (str);
 }
 
 char	*is_dig(char *str)
@@ -61,7 +62,7 @@ char 	*is_start(char *str, t_path *pat)
 			return (NULL);
 		str = skip_text(str);
 		str = skip_com2(str);
-		if (!str || strchr_until(str, "-") || *str == 'L' || *str == '#')
+		if (!str || strchr_until(str, '-') || *str == 'L' || *str == '#')
 			return (NULL);
 		pat->start.name = ft_strcat(str, " ");
 		while (*str && *str != ' ')
@@ -90,7 +91,7 @@ char 	*is_end(char *str, t_path *pat)
 			return (NULL);
 		str = skip_text(str);
 		str = skip_com2(str);
-		if (!str || strchr_until(str, " ") || *str == 'L' || *str == '#')
+		if (!str || strchr_until(str, ' ') || *str == 'L' || *str == '#')
 			return (NULL);
 		pat->end.name = ft_strcat(str, " ");
 		while (*str && *str != ' ')

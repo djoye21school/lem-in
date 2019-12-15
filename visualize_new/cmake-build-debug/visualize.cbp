@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="visualize">
-				<Option output="/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/visualize" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug"/>
+				<Option output="/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/visualize" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -54,15 +54,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 visualize"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 visualize"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="visualize/fast">
-				<Option output="/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/visualize" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug"/>
+				<Option output="/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/visualize" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -77,23 +77,23 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 visualize/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/leeeeem/visualize/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 visualize/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/sdoughnu/Desktop/leeeeem/visualize/include/lem_in_viz.h">
+		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/include/lem_in_viz.h">
 			<Option target="visualize"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/leeeeem/visualize/src/error.c">
+		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/src/error.c">
 			<Option target="visualize"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/leeeeem/visualize/src/main_viz.c">
+		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/src/main_viz.c">
 			<Option target="visualize"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/leeeeem/visualize/CMakeLists.txt">
+		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
