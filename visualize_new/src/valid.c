@@ -66,6 +66,7 @@ char 	*ants(char *str, int *ant)
 {
 	if (!(str = skip_comm(str, ant)))
 		return (NULL);
+	//printf("1\n");
 	*ant = ft_atoi(str);
 	while (*str && *str != '\n')
 	{
@@ -73,6 +74,7 @@ char 	*ants(char *str, int *ant)
 			return (NULL);
 		str++;
 	}
+	//printf("%s\n", str);
 	if (*str == '\n')
 		str++;
 	return (str);
@@ -90,9 +92,18 @@ char 	*add_arr_room(t_path *pat, char *str)
 				continue ;
 			}
 			if (!(str = is_start(str + 2, pat)))
+			{
+				printf("\n444\n");
 				return (NULL);
+			}
 			if (!(str = is_end(str + 2, pat)))
+			{
+				printf("\n888\n");
 				return (NULL);
+			}
+			//printf("---%s===", str);
+			//printf("%s\n", pat->start.name);
+			//printf("%s\n", pat->end.name);
 		}
 		else
 		{
@@ -100,9 +111,12 @@ char 	*add_arr_room(t_path *pat, char *str)
 				return (str);
 			if (*str == 'L' || find_repeat(pat, str)
 				|| !(str = add_arr(pat, str)))
+			{
+				//printf("\n%s\n", str);
 				return (NULL);
+			}
 		}
-		(!(*str)) ? NULL : str++;
+		*str ? str++ : NULL;
 	}
 	return (str);
 }

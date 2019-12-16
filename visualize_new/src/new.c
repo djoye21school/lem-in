@@ -49,3 +49,21 @@ int			add_pat(t_stack *new, t_path *pat)
 	return (0);
 }
 
+char 		*ft_strcut(char *str, char d)
+{
+	char *s;
+	int i;
+
+	while (str[i] && str[i] != d)
+		i++;
+	if (!(s = (char*)malloc(sizeof(char) * i)))
+		return (NULL);
+	i = 0;
+	while (str[i] && str[i] != d)
+	{
+		s[i] = str[i];
+		i++;
+	}
+	s[i] = '\0';
+	return (s);
+}

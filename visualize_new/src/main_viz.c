@@ -18,32 +18,41 @@ char 	*is_valid(char *str, t_path *pat)
 	t_stack	*two;
 
 	str = ants(str, &(pat->ant));
+	//printf("%s\n", str);
+	//printf("---%d\n", pat->ant);
 	if (pat->ant <= 0 || !str || (!(str = add_arr_room(pat, str)))) // && !str
 		return (NULL);
 	return (str);
 }
 
-char	*output_lem_in(void)
+char	*output_lem_in(int fd)
 {
 	char *str;
 	char *tmp;
 	char *del;
 
-	if ((tmp = ft_strnew(100000)))
+	if (!(tmp = ft_strnew(10000)))
 		return (NULL);
 	str = NULL;
-	while (read(0, tmp, 100000) > 0)
+	fd = 3;
+	while (read(0, tmp, 10000) > 0)
 	{
+		//printf("2");
 		del = str;
 		str = ft_strjoin(str, tmp);
+		//printf("AAAAAAAAAAAAAAAAAAAAA\n%s\n", str);
 		del ? ft_strdel(&del) : NULL;
-		ft_bzero(tmp, 100000);
+		ft_bzero(tmp, 10000);
 	}
+	//printf("\n%s\n", str);
 	ft_strdel(&tmp);
+	//printf("\n%s\n", str);
 	return (str);
 }
 void	init_lem(t_path **pat)
 {
+	if (!(*pat = (t_path*)malloc(sizeof(t_path))))
+		error_inlem(NULL);
 	(*pat)->start.name = NULL;
 	(*pat)->end.name = NULL;
 	(*pat)->arr = NULL;
@@ -59,20 +68,32 @@ int		main(int ac, char **av)
 	t_sdl	*yep;
 	t_path	*pat;
 
-	if (!(str = output_lem_in()))
+	int fd;
+	fd = open("test", O_RDONLY);
+	printf("%d\n", fd);
+	//fd = 3;
+	str = output_lem_in(fd);
+	if (str == NULL)
+	{
+		//printf("5");
 		error_inlem(str);
-	if (!ft_strcmp("Error\n", str))
+	}
+	if (!(ft_strcmp("Error\n", str)))
 		error_inlem(str);
 	init_lem(&pat);
 	if (!(s = is_valid(str, pat)))
+	{
+		//printf("%s\n", s);
+		printf("sshhs\n");
 		error_inlem(str);
-	printf("%s\n", s);
+	}
+	//printf("odheohdiuwhhdw\n\n\n%s\n", s);
 	return (0);
 }
 
 
-
 /*
+
 int         	main(int ac, char **av)
 {
 	t_sdl		yep;
@@ -161,7 +182,7 @@ int         	main(int ac, char **av)
 //	SDL_RenderCopy(yep.ren, yep.ant, NULL, &(yep.destr));
 //	SDL_RenderPresent(yep.ren);
 	while (run)
-	{  
+	{
 		while (SDL_PollEvent(&e))
 		{
 			if (e.type == SDL_QUIT)
@@ -226,7 +247,6 @@ int         	main(int ac, char **av)
 }
 
 */
-
 
 
 

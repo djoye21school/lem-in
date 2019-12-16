@@ -37,6 +37,7 @@ int 	strcmp_name(t_stack *old, char *str, char s)
 	char *dest;
 
 	dest = old->name;
+	printf("-------------%s\n", dest);
 	while (*str && *dest)
 	{
 		if (*str != *dest)
@@ -62,5 +63,6 @@ int 	find_repeat(t_path *pat, char *str)
 			return (1);
 		i++;
 	}
+	printf("helpppppppppppp find\n");
 	return (0);
 }

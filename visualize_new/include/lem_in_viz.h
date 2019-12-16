@@ -13,11 +13,16 @@
 #ifndef LEM_IN_VIZ_H
 # define LEM_IN_VIZ_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include "SDL.h"
 # include "SDL_image.h"
 # include <unistd.h>
 # include <fcntl.h>
+# include <sys/uio.h>
+# include <ctype.h>
+# include <string.h>
+# include <aio.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include "../libft/libft.h"
@@ -84,6 +89,7 @@ int 	find_repeat(t_path *pat, char *str);
 int 	strcmp_name(t_stack *old, char *str, char s);
 char 	*add_arr(t_path *pat, char *str);
 
+char 	*ft_strcut(char *str, char d);
 
 int			add_pat(t_stack *new, t_path *pat);
 t_stack		*new_stack(char *st, int iter);

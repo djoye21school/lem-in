@@ -37,8 +37,8 @@ void	quit(t_sdl *yep)
 
 void	error_inlem(char *str)
 {
-	//ft_strdel(&str);
-	printf("%s\n", "Error");
+	ft_strdel(&str);
+	printf("%s\n", "Error\n");
 	exit(0);
 }
 
@@ -52,5 +52,3 @@ void	error_img(int i, t_sdl *yep)
 		quit(yep);
 	exit(0);
 }
-
-

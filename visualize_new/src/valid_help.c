@@ -58,13 +58,16 @@ char 	*is_start(char *str, t_path *pat)
 	t_stack		*a;
 	if (*(str - 1) == '#' && *(str - 2) == '#' && !strcmp_until(str, "start"))
 	{
+		//printf("--%s\n", str);
 		if (pat->start.name)
 			return (NULL);
 		str = skip_text(str);
 		str = skip_com2(str);
 		if (!str || strchr_until(str, '-') || *str == 'L' || *str == '#')
 			return (NULL);
-		pat->start.name = ft_strcat(str, " ");
+		//printf("%s\n", str);
+		pat->start.name = ft_strcut(str, ' ');
+		//printf("\n%s\n", pat->start.name);
 		while (*str && *str != ' ')
 			str++;
 		while (*str && (*str == ' ' || *str == '\t'))
@@ -78,28 +81,33 @@ char 	*is_start(char *str, t_path *pat)
 			return (NULL);
 		if (add_pat(a, pat))
 			return (NULL);
+		//printf("%s\n", pat->start.name);
 	}
+	//printf("AAAAAA\n%s\n", str);
 	return (str - 2);
 }
 
 char 	*is_end(char *str, t_path *pat)
 {
 	t_stack		*a;
+	//printf("111111\n");
 	if (*(str - 1) == '#' && *(str - 2) == '#' && !strcmp_until(str, "end"))
 	{
+		//printf("--%s\n", str);
 		if (pat->end.name)
 			return (NULL);
 		str = skip_text(str);
 		str = skip_com2(str);
-		if (!str || strchr_until(str, ' ') || *str == 'L' || *str == '#')
+		if (!str || strchr_until(str, '-') || *str == 'L' || *str == '#')
 			return (NULL);
-		pat->end.name = ft_strcat(str, " ");
+		pat->end.name = ft_strcut(str, ' ');
 		while (*str && *str != ' ')
 			str++;
 		while (*str && (*str == ' ' || *str == '\t'))
 			str++;
 		if (!(str = is_dig(str)))
 			return (NULL);
+
 		if (!(str = is_dig(str)))
 			return (NULL);
 		pat->end.i = pat->now + 1;
