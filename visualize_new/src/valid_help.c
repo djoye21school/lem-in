@@ -42,6 +42,8 @@ char	*skip_com2(char *str)
 
 char	*is_dig(char *str)
 {
+	while (*str && (*str == ' ' || *str == '\t'))
+		str++;
 	if (*str == '-' || *str == '+')
 		str++;
 	while (*str && ft_isdigit(*str))
@@ -56,44 +58,48 @@ char	*is_dig(char *str)
 char 	*is_start(char *str, t_path *pat)
 {
 	t_stack		*a;
+	int x;
+	int y;
+
 	if (*(str - 1) == '#' && *(str - 2) == '#' && !strcmp_until(str, "start"))
 	{
-		//printf("--%s\n", str);
 		if (pat->start.name)
 			return (NULL);
 		str = skip_text(str);
 		str = skip_com2(str);
 		if (!str || strchr_until(str, '-') || *str == 'L' || *str == '#')
 			return (NULL);
-		//printf("%s\n", str);
 		pat->start.name = ft_strcut(str, ' ');
-		//printf("\n%s\n", pat->start.name);
 		while (*str && *str != ' ')
 			str++;
 		while (*str && (*str == ' ' || *str == '\t'))
 			str++;
+		x = ft_atoi(str);
 		if (!(str = is_dig(str)))
 			return (NULL);
+		y = ft_atoi(str);
 		if (!(str = is_dig(str)))
 			return (NULL);
 		pat->start.i = pat->now + 1;
-		if (!(a = new_stack(pat->start.name, pat->start.i)))
+		pat->start.x = x;
+		pat->start.y = y;
+		if (!(a = new_stack(pat->start.name, pat->start.i, x, y)))
 			return (NULL);
 		if (add_pat(a, pat))
 			return (NULL);
-		//printf("%s\n", pat->start.name);
+		return (str);
 	}
-	//printf("AAAAAA\n%s\n", str);
 	return (str - 2);
 }
 
 char 	*is_end(char *str, t_path *pat)
 {
 	t_stack		*a;
-	//printf("111111\n");
+
 	if (*(str - 1) == '#' && *(str - 2) == '#' && !strcmp_until(str, "end"))
 	{
-		//printf("--%s\n", str);
+		int x;
+		int y;
 		if (pat->end.name)
 			return (NULL);
 		str = skip_text(str);
@@ -105,16 +111,20 @@ char 	*is_end(char *str, t_path *pat)
 			str++;
 		while (*str && (*str == ' ' || *str == '\t'))
 			str++;
+		x = ft_atoi(str);
 		if (!(str = is_dig(str)))
 			return (NULL);
-
+		y = ft_atoi(str);
 		if (!(str = is_dig(str)))
 			return (NULL);
 		pat->end.i = pat->now + 1;
-		if (!(a = new_stack(pat->end.name, pat->end.i)))
+		pat->end.x = x;
+		pat->end.y = y;
+		if (!(a = new_stack(pat->end.name, pat->end.i, x, y)))
 			return (NULL);
 		if (add_pat(a, pat))
 			return (NULL);
+		return (str);
 	}
 	return (str - 2);
 }

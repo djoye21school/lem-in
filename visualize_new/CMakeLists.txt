@@ -77,7 +77,8 @@ add_executable(visualize_new
         src/new.c
         src/valid.c
         src/valid_help.c
-        test)
+        src/vizu.c
+        cmake-build-debug/test)
 
 target_link_libraries(visualize_new "-framework SDL2")
 target_link_libraries(visualize_new "-framework SDL2_image")

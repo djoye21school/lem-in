@@ -65,6 +65,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/visualize_new.dir/src/new.c.o"
   "CMakeFiles/visualize_new.dir/src/valid.c.o"
   "CMakeFiles/visualize_new.dir/src/valid_help.c.o"
+  "CMakeFiles/visualize_new.dir/src/vizu.c.o"
   "visualize_new"
   "visualize_new.pdb"
 )

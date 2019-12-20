@@ -12,7 +12,7 @@
 
 #include "../include/lem_in_viz.h"
 
-t_stack		*new_stack(char *st, int iter)
+t_stack		*new_stack(char *st, int iter, int x, int y)
 {
 	t_stack *a;
 
@@ -20,8 +20,8 @@ t_stack		*new_stack(char *st, int iter)
 		return (NULL);
 	a->name = st;
 	a->i = iter;
-	a->x = 1;
-	a->y = 1;
+	a->x = x;
+	a->y = y;
 	return (a);
 }
 
@@ -44,7 +44,7 @@ int			add_pat(t_stack *new, t_path *pat)
 		pat->arr = aaa;
 		pat->size = pat->size + 15;
 	}
-	(pat->now) += 1;
+	pat->now += 1;
 	pat->arr[pat->now] = new;
 	return (0);
 }
@@ -54,6 +54,7 @@ char 		*ft_strcut(char *str, char d)
 	char *s;
 	int i;
 
+	i = 0;
 	while (str[i] && str[i] != d)
 		i++;
 	if (!(s = (char*)malloc(sizeof(char) * i)))

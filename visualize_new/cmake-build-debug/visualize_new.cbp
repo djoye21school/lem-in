@@ -90,6 +90,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/test">
+			<Option target="visualize_new"/>
+		</Unit>
 		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/include/lem_in_viz.h">
 			<Option target="visualize_new"/>
 		</Unit>
@@ -294,7 +297,7 @@
 		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/src/valid_help.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/test">
+		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/src/vizu.c">
 			<Option target="visualize_new"/>
 		</Unit>
 		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/CMakeLists.txt">

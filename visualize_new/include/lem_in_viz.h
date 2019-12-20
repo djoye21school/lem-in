@@ -37,7 +37,7 @@ typedef struct		s_sdl
 	SDL_Texture		*start;
 	SDL_Texture 	*ant;
 	SDL_Texture		*end;
-	int				size_sqr;
+	int				ant_rect;
 	int				win_x;
 	int				win_y;
 	SDL_Texture		*house;
@@ -61,6 +61,7 @@ typedef struct		s_path
 	int				ant;
 	long			size;
 	long			now;
+	t_stack 		ants;
 	t_stack			**arr;
 	t_stack			start;
 	t_stack 		end;
@@ -92,7 +93,9 @@ char 	*add_arr(t_path *pat, char *str);
 char 	*ft_strcut(char *str, char d);
 
 int			add_pat(t_stack *new, t_path *pat);
-t_stack		*new_stack(char *st, int iter);
+t_stack		*new_stack(char *st, int iter, int x, int y);
 
+int 	vizu(t_sdl *yep, t_path *pat, char *str);
+int 	init_coordinates(t_path *pat, t_sdl *yep);
 
 #endif

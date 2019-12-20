@@ -1905,6 +1905,33 @@ src/valid_help.c.s:
 	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/valid_help.c.s
 .PHONY : src/valid_help.c.s
 
+src/vizu.o: src/vizu.c.o
+
+.PHONY : src/vizu.o
+
+# target to build an object file
+src/vizu.c.o:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/vizu.c.o
+.PHONY : src/vizu.c.o
+
+src/vizu.i: src/vizu.c.i
+
+.PHONY : src/vizu.i
+
+# target to preprocess a source file
+src/vizu.c.i:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/vizu.c.i
+.PHONY : src/vizu.c.i
+
+src/vizu.s: src/vizu.c.s
+
+.PHONY : src/vizu.s
+
+# target to generate assembly for a file
+src/vizu.c.s:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/vizu.c.s
+.PHONY : src/vizu.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -2112,6 +2139,9 @@ help:
 	@echo "... src/valid_help.o"
 	@echo "... src/valid_help.i"
 	@echo "... src/valid_help.s"
+	@echo "... src/vizu.o"
+	@echo "... src/vizu.i"
+	@echo "... src/vizu.s"
 .PHONY : help
 
 

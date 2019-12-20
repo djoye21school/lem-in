@@ -70,6 +70,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/sdoughnu/Desktop/new/visualize_new/src/new.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/new.c.o"
   "/Users/sdoughnu/Desktop/new/visualize_new/src/valid.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/valid.c.o"
   "/Users/sdoughnu/Desktop/new/visualize_new/src/valid_help.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/valid_help.c.o"
+  "/Users/sdoughnu/Desktop/new/visualize_new/src/vizu.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/vizu.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

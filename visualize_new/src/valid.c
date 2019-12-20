@@ -65,7 +65,7 @@ char 	*skip_comm(char *str, int *ant)
 char 	*ants(char *str, int *ant)
 {
 	if (!(str = skip_comm(str, ant)))
-		return (NULL);
+	    return (NULL);
 	//printf("1\n");
 	*ant = ft_atoi(str);
 	while (*str && *str != '\n')
@@ -107,16 +107,19 @@ char 	*add_arr_room(t_path *pat, char *str)
 		}
 		else
 		{
+			//printf("%s\n", str);
 			if (strchr_until(str, '-'))
 				return (str);
 			if (*str == 'L' || find_repeat(pat, str)
-				|| !(str = add_arr(pat, str)))
+					|| !(str = add_arr(pat, str)))
 			{
 				//printf("\n%s\n", str);
+				printf("laalalla\n");
 				return (NULL);
 			}
 		}
 		*str ? str++ : NULL;
+		//printf("%s\n", str);
 	}
 	return (str);
 }

@@ -15,18 +15,24 @@
 char 	*add_arr(t_path *pat, char *str)
 {
 	t_stack *a;
+	int x;
+	int y;
 
-	a->name = ft_strcat(str, " ");
+	if (!(a = (t_stack*)malloc(sizeof(t_stack))))
+		return (NULL);
+	a->name = ft_strcut(str, ' ');
 	while (*str && *str != ' ')
 		str++;
 	while (*str && (*str == ' ' || *str == '\t'))
 		str++;
-	if (!(is_dig(str)))
+	x = ft_atoi(str);
+	if (!(str = is_dig(str)))
 		return (NULL);
-	if (!(is_dig(str)))
+	y = ft_atoi(str);
+	if (!(str = is_dig(str)))
 		return (NULL);
 	a->i = pat->now + 1;
-	a = new_stack(a->name, a->i);
+	a = new_stack(a->name, a->i, x, y);
 	if (add_pat(a, pat))
 		return (NULL);
 	return (str);
@@ -37,7 +43,6 @@ int 	strcmp_name(t_stack *old, char *str, char s)
 	char *dest;
 
 	dest = old->name;
-	printf("-------------%s\n", dest);
 	while (*str && *dest)
 	{
 		if (*str != *dest)
@@ -55,14 +60,12 @@ int 	find_repeat(t_path *pat, char *str)
 	int		i;
 	char	*s;
 
-	i = 0;
+	i = -1;
 	s = str;
-	while (i <= pat->now)
+	while (++i <= pat->now)
 	{
-		if (strcmp_name(pat->arr[i], s, ' '))
+		if (!strcmp_name(pat->arr[i], s, ' '))
 			return (1);
-		i++;
 	}
-	printf("helpppppppppppp find\n");
 	return (0);
 }
