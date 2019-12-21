@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/12 20:35:49 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/21 17:25:53 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ typedef struct	    s_room
 	int			    x;
 	int			    y;
     struct s_room   *next;
+    struct s_room   **link;
 }                   t_room;
 
 typedef struct      s_route
 {
     int             lem_id;
     int             level;
+    int             visit;
     t_room          *room;
     struct s_route  *prev;
     struct s_route  *next;
@@ -50,7 +52,13 @@ typedef struct      s_routes
     t_route         **start;
 }                   t_routes;
 
-typedef struct	    s_head
+typedef struct      s_stack
+{
+    t_room          *room;
+    struct s_stack  *next;
+}                   t_stack;
+
+typedef struct      s_head
 {
     int             count_lem;
     int             count_room;
@@ -60,28 +68,33 @@ typedef struct	    s_head
     t_room          *first;
     t_room          *start;
     t_room          *end;
+    t_stack         *queue;
+    t_stack         *q_last;
     int             **matrix;
     char            **split;
     t_routes        *routes;
 }                   t_head;
 
-
-
-
-
+t_head		    	*read_file(t_head *head, int fd);
 t_head              *add_data(t_head *head);
 t_room		        *add_room(t_head *head, char *str, int flag);
-t_head              *map(t_head *head);
+int				    check_replay(t_head *head, char *str, int x, int y);
 t_head		        *add_connect(t_head *head, char *str);
-t_routes	        *route_line(t_head *head);
-t_routes		    *route_traffic(t_head *head, t_routes *routes, int i, int c, int flag);
 t_routes		    *count_step(t_routes *routes);
 t_routes		    *lem_go(t_head *head, t_routes *routes);
+int				    find_chr(char *str, int i, char c);
+t_head		        *add_queue(t_head *head, t_room *room);
+t_room			    *pop_queue(t_head *head, t_room *room);
+
+void		print_stack(t_head *head);
+
+t_head              *map(t_head *head);
+t_routes	        *route_line(t_head *head);
+t_routes		    *route_traffic(t_head *head, t_routes *routes, int i, int c, int flag);
 void			    print_lem_position(t_routes *routes);
 t_head		        *map(t_head *head);
 int 			    upd_map(t_head *head);
 int				    min_val(t_head *head, int l, int c);
-
-int				recurse(t_head *head, int l, int c, int i, int flag);
+int				    recurse(t_head *head, int l, int c, int i, int flag);
 
 #endif
