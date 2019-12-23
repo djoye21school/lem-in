@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/22 19:42:44 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/23 17:51:02 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,15 @@ int				main(int ac, char **av)
 	head->routes = (t_routes*)malloc(sizeof(t_routes));
 	head->q_stack = NULL;
 	head->q_last = NULL;
-	//exit(0);
-	add_queue(head, head->start);
-	print_stack(head);
-	printf("\n");
-	add_queue(head, head->start);
-	print_stack(head);
+	head->routes = NULL;
+	
+	algo(head);
+	algo(head);
+	algo(head);
+	count_step(head->routes);
+	lem_go(head, head->routes);
 	exit(close(fd));
 	//routes = route_line(head);
-	count_step(routes);
-	lem_go(head, routes);
 	exit(close(fd));
 }
 
@@ -52,7 +51,7 @@ void			print_stack(t_head *head)
 	tmp = head->q_stack;
 	while (tmp)
 	{
-		printf("%s\n", tmp->name);
+		printf("%s -> lev: %d\n", tmp->name, tmp->level);
 		tmp = tmp->queue;
 	}
 }

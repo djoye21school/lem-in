@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 13:51:54 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/22 18:41:56 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/23 12:44:08 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ t_head			*read_file(t_head *head, int fd)
 	return (head);
 }
 
+int				skip(char **str, int i)
+{
+	while (str[i][0] == '#')
+		i++;
+	return (i);
+}
+
 t_head			*add_data(t_head *head)
 {
 	int			i;
@@ -38,20 +45,12 @@ t_head			*add_data(t_head *head)
 	i = -1;
 	while (head->split[++i])
 	{
-		if (i == 0)
+		if (i == 0)// && (i = skip(head->split, i)))
 			head->count_lem = ft_atoi(head->split[i]);
-		else if (ft_strequ("##start", head->split[i]))
-		{
-			while (head->split[i][0] == '#')
-				i++;
+		else if (ft_strequ("##start", head->split[i]) && (i = skip(head->split, i)))
 			head->start = add_room(head, head->split[i]);
-		}
-		else if (ft_strequ("##end", head->split[i]))
-		{
-			while (head->split[i][0] == '#')
-				i++;
+		else if (ft_strequ("##end", head->split[i]) && (i = skip(head->split, i)))
 			head->end = add_room(head, head->split[i]);
-		}
 		else if (head->split[i][0] == '#')
 			continue ;
 		else if (head->split[i][find_chr(head->split[i], 0, ' ')] == ' ')
@@ -59,7 +58,7 @@ t_head			*add_data(t_head *head)
 		else if (head->split[i][find_chr(head->split[i], 0, '-')] == '-')
 			add_connect(head, head->split[i]);
 		else
-			exit(write(1, "error\n", 6) - 6);
+			exit(write(1, "error_read\n", 10) - 6);
 	}
 	return (head);
 }
@@ -100,7 +99,7 @@ t_room			*add_room(t_head *head, char *str)
 	return (room);
 }
 
-t_room		*room_param(t_room *room, char *str, char *x, char *y)
+t_room			*room_param(t_room *room, char *str, char *x, char *y)
 {
 	if (str[0] == 'L' || !ft_str_is_numeric(x) || !ft_str_is_numeric(y))
 		exit(write(1, "error\n", 6) - 6);
