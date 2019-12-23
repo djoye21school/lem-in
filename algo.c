@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/23 17:46:25 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/23 19:56:13 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,8 +149,9 @@ int				check_end(t_head *head)
 	{
 		if (head->q_stack->link[i] == head->end)
 		{
-			//printf("%s\n", head->q_stack->name);
+			printf("%s\n", head->q_stack->name);
 			route(head);
+			head->count_route -= 1;
 			return (1);
 		}
 		i++;
@@ -201,8 +202,8 @@ t_head			*algo(t_head *head)
 {
 	while(!check_end(head))
 	{
-		//print_stack(head);
-		//printf("----------\n");
+		print_stack(head);
+		printf("----------\n");
 		add_queue(head);
 	}
 	clear_room_attribute(head);

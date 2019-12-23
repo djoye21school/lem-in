@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/23 17:51:02 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/23 19:56:13 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,11 @@ int				main(int ac, char **av)
 	head->q_stack = NULL;
 	head->q_last = NULL;
 	head->routes = NULL;
-	
 	algo(head);
-	algo(head);
-	algo(head);
+	while (head->count_route)
+		algo(head);
 	count_step(head->routes);
 	lem_go(head, head->routes);
-	exit(close(fd));
-	//routes = route_line(head);
 	exit(close(fd));
 }
 
