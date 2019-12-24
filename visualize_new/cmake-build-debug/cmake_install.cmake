@@ -1,4 +1,4 @@
-# Install script for directory: /Users/sdoughnu/Desktop/new/visualize_new
+# Install script for directory: /Users/sdoughnu/Desktop/lem-in/visualize_new
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

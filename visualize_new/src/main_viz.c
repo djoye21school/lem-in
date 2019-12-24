@@ -29,21 +29,6 @@ char 	*is_valid(char *str, t_path *pat)
 			str = skip_text(str);
 		}
 	}
-//    printf("\n--------------------------\n");
-//    int i = 0;
-//    t_stack *buf;
-//    while (i <= pat->now)
-//    {
-//        buf = pat->arr[i];
-//        printf("stack: %s\n", buf->name);
-//        buf = buf->next;
-//        while (buf)
-//        {
-//            printf("- %s\n", buf->name);
-//            buf = buf->next;
-//        }
-//        i++;
-//    }
 	return (str);
 }
 
@@ -100,13 +85,6 @@ void	init_sdl(t_sdl *yep)
 		error_img(1, yep);
 	if (!(yep->house = IMG_LoadTexture(yep->ren, "../pic/house.png")))
 		error_img(1, yep);
-//    if (SDL_RenderClear(yep->ren) != 0)
-//        error_st(1, yep);
-//    if (SDL_RenderClear(yep->ren) != 0)
-//        error_st(1, yep);
-	//int w;
-	//int h;
-	//SDL_QueryTexture(yep->house, NULL, NULL, &w, &h);
 }
 
 int		main(int ac, char **av) {

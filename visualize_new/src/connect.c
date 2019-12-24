@@ -71,8 +71,5 @@ int         ox_eeee(t_path *pat, char *str)
         return (0);
    new_in_first(&one, copy(two));
    new_in_first(&two, copy(one));
-//   printf("%s - ", one->name);
-//    printf("%s\n", two->name);
-    printf("connect %s - %s\n", one->name, one->next->name);
     return (1);
 }

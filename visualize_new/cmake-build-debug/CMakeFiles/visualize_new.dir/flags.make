@@ -6,5 +6,5 @@ C_FLAGS = -g
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/sdoughnu/Desktop/new/visualize_new/include -I/Users/sdoughnu/Desktop/new/visualize_new/libft -I/Users/sdoughnu/Library/Frameworks/SDL2.framework/Headers -I/Users/sdoughnu/Library/Frameworks/SDL2_image.framework/Headers 
+C_INCLUDES = -I/Users/sdoughnu/Desktop/lem-in/visualize_new/include -I/Users/sdoughnu/Desktop/lem-in/visualize_new/libft -I/Users/sdoughnu/Library/Frameworks/SDL2.framework/Headers -I/Users/sdoughnu/Library/Frameworks/SDL2_image.framework/Headers 
 
