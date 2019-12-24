@@ -92,10 +92,11 @@ char 	*add_arr(t_path *pat, char *str);
 
 char 	*ft_strcut(char *str, char d);
 
-int			add_pat(t_stack *new, t_path *pat);
-t_stack		*new_stack(char *st, int iter, int x, int y);
+int		add_pat(t_stack *new, t_path *pat);
+t_stack	*new_stack(char *st, int iter, int x, int y);
 
 int 	vizu(t_sdl *yep, t_path *pat, char *str);
 int 	init_coordinates(t_path *pat, t_sdl *yep);
+int     ox_eeee(t_path *pat, char *str);
 
 #endif

@@ -1,7 +1,4 @@
-/Users/sdoughnu/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/sdoughnu/Desktop/new/visualize_new
-CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
-  CMake 3.15 or higher is required.  You are running version 3.14.5
-
-
--- Configuring incomplete, errors occurred!
-See also "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/sdoughnu/Desktop/new/visualize_new
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug

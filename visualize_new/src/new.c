@@ -22,6 +22,7 @@ t_stack		*new_stack(char *st, int iter, int x, int y)
 	a->i = iter;
 	a->x = x;
 	a->y = y;
+	a->next = NULL;
 	return (a);
 }
 

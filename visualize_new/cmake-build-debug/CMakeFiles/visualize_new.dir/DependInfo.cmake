@@ -65,6 +65,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/sdoughnu/Desktop/new/visualize_new/libft/ft_tolower.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/libft/ft_tolower.c.o"
   "/Users/sdoughnu/Desktop/new/visualize_new/libft/ft_toupper.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/libft/ft_toupper.c.o"
   "/Users/sdoughnu/Desktop/new/visualize_new/src/add_arr.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/add_arr.c.o"
+  "/Users/sdoughnu/Desktop/new/visualize_new/src/connect.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/connect.c.o"
   "/Users/sdoughnu/Desktop/new/visualize_new/src/error.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/error.c.o"
   "/Users/sdoughnu/Desktop/new/visualize_new/src/main_viz.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/main_viz.c.o"
   "/Users/sdoughnu/Desktop/new/visualize_new/src/new.c" "/Users/sdoughnu/Desktop/new/visualize_new/cmake-build-debug/CMakeFiles/visualize_new.dir/src/new.c.o"

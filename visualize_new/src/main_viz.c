@@ -14,11 +14,8 @@
 
 char 	*is_valid(char *str, t_path *pat)
 {
-	t_stack *one;
-	t_stack	*two;
-
 	str = ants(str, &(pat->ant));
-	if (pat->ant <= 0 || !str || (!(str = add_arr_room(pat, str)))) // && !str
+	if (pat->ant <= 0 || !str || (!(str = add_arr_room(pat, str))))
 		return (NULL);
 	while (*str && *str != 'L')
 	{
@@ -28,16 +25,25 @@ char 	*is_valid(char *str, t_path *pat)
 		{
 			if (!(strchr_until(str, '-')))
 				return (NULL);
-			where_room(one);
-			while (*str && *str!= '-')
-				str++;
-			if (*str == '-')
-				str++;
-			where_room(two);
-			connection(&one, &two);
+            ox_eeee(pat, str);
 			str = skip_text(str);
 		}
 	}
+//    printf("\n--------------------------\n");
+//    int i = 0;
+//    t_stack *buf;
+//    while (i <= pat->now)
+//    {
+//        buf = pat->arr[i];
+//        printf("stack: %s\n", buf->name);
+//        buf = buf->next;
+//        while (buf)
+//        {
+//            printf("- %s\n", buf->name);
+//            buf = buf->next;
+//        }
+//        i++;
+//    }
 	return (str);
 }
 
@@ -80,43 +86,70 @@ void	init_sdl(t_sdl *yep)
 	if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG)
 		error_img(0, yep);
 	if (!(yep->win = SDL_CreateWindow("VLADIMIRRRRRRR  SUPER GOOD", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-									  5120, 2880, SDL_WINDOW_FULLSCREEN)))
-		error_st(1, yep);
+	        4000, 2000, SDL_WINDOW_FULLSCREEN)))
+	    error_st(1, yep);
+
 	if (!(yep->ren = SDL_CreateRenderer(yep->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
 		error_st(1, yep);
 	if (!(yep->fon = IMG_LoadTexture(yep->ren, "../pic/mmm.bmp")))
 		error_img(1, yep);
+    SDL_SetTextureBlendMode(yep->fon, SDL_BLENDMODE_NONE);
+
 
 	if (!(yep->ant = IMG_LoadTexture(yep->ren, "../pic/ant1.png")))
 		error_img(1, yep);
 	if (!(yep->house = IMG_LoadTexture(yep->ren, "../pic/house.png")))
 		error_img(1, yep);
+//    if (SDL_RenderClear(yep->ren) != 0)
+//        error_st(1, yep);
+//    if (SDL_RenderClear(yep->ren) != 0)
+//        error_st(1, yep);
 	//int w;
 	//int h;
 	//SDL_QueryTexture(yep->house, NULL, NULL, &w, &h);
-	//printf("house %d %d\n", w, h);
 }
 
-int		main(int ac, char **av)
-{
-	char	*str;
-	char 	*s;
-	t_sdl	yep;
-	t_path	*pat;
+int		main(int ac, char **av) {
+    char *str;
+    char *s;
+    t_sdl yep;
+    t_path *pat;
 
-	int fd;
-	fd = open("test", O_RDONLY);
-	printf("%d\n", fd);
-	str = output_lem_in(fd);
-	if (str == NULL)
-		error_inlem(str);
-	if (!(ft_strcmp("Error\n", str)))
-		error_inlem(str);
-	init_lem(&pat);
-	if (!(s = is_valid(str, pat)))
-		error_inlem(str);
-	init_coordinates(pat, &yep);
-	init_sdl(&yep);
+    int fd;
+    fd = open("test", O_RDONLY);
+    printf("%d\n", fd);
+    str = output_lem_in(fd);
+    if (str == NULL)
+        error_inlem(str);
+    if (!(ft_strcmp("Error\n", str)))
+        error_inlem(str);
+    init_lem(&pat);
+    if (!(s = is_valid(str, pat)))
+        error_inlem(str);
+//    printf("STOOOOP\n");
+//    printf("%s - ", pat->arr[0]->name);
+//    printf("%s - ", pat->arr[0]->next->name);
+//    printf("%s - ", pat->arr[0]->next->next->name);
+//    printf("\n%ld x ", pat->arr[0]->next->next->x);
+//    printf("\n%ld y ", pat->arr[0]->next->next->y);
+//    printf("%s - ", pat->arr[0]->next->next->next->name);
+//    printf("\n%ld x ", pat->arr[0]->next->next->next->x);
+//    printf("\n%ld y ", pat->arr[0]->next->next->next->y);
+//        t_stack *buf;
+//        int i = 0;
+//        while (i < pat->now)
+//        {
+//            buf = pat->arr[i];
+//            while (buf)
+//            {
+//                printf("%s - ", buf->name);
+//                buf = buf->next;
+//            }
+//            printf("\n");
+//            i++;
+//        }
+    init_sdl(&yep);
+
 	vizu(&yep, pat, s);
 	return (0);
 }

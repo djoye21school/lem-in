@@ -43,7 +43,7 @@ int 	strcmp_name(t_stack *old, char *str, char s)
 	char *dest;
 
 	dest = old->name;
-	while (*str && *dest)
+	while (*dest && *str)
 	{
 		if (*str != *dest)
 			return (1);

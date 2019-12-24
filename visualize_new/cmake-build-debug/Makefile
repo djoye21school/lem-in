@@ -1770,6 +1770,33 @@ src/add_arr.c.s:
 	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/add_arr.c.s
 .PHONY : src/add_arr.c.s
 
+src/connect.o: src/connect.c.o
+
+.PHONY : src/connect.o
+
+# target to build an object file
+src/connect.c.o:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/connect.c.o
+.PHONY : src/connect.c.o
+
+src/connect.i: src/connect.c.i
+
+.PHONY : src/connect.i
+
+# target to preprocess a source file
+src/connect.c.i:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/connect.c.i
+.PHONY : src/connect.c.i
+
+src/connect.s: src/connect.c.s
+
+.PHONY : src/connect.s
+
+# target to generate assembly for a file
+src/connect.c.s:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/connect.c.s
+.PHONY : src/connect.c.s
+
 src/error.o: src/error.c.o
 
 .PHONY : src/error.o
@@ -2124,6 +2151,9 @@ help:
 	@echo "... src/add_arr.o"
 	@echo "... src/add_arr.i"
 	@echo "... src/add_arr.s"
+	@echo "... src/connect.o"
+	@echo "... src/connect.i"
+	@echo "... src/connect.s"
 	@echo "... src/error.o"
 	@echo "... src/error.i"
 	@echo "... src/error.s"

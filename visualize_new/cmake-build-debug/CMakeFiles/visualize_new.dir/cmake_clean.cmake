@@ -60,6 +60,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/visualize_new.dir/libft/ft_tolower.c.o"
   "CMakeFiles/visualize_new.dir/libft/ft_toupper.c.o"
   "CMakeFiles/visualize_new.dir/src/add_arr.c.o"
+  "CMakeFiles/visualize_new.dir/src/connect.c.o"
   "CMakeFiles/visualize_new.dir/src/error.c.o"
   "CMakeFiles/visualize_new.dir/src/main_viz.c.o"
   "CMakeFiles/visualize_new.dir/src/new.c.o"

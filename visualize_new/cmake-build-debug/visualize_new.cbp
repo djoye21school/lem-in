@@ -282,6 +282,9 @@
 		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/src/add_arr.c">
 			<Option target="visualize_new"/>
 		</Unit>
+		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/src/connect.c">
+			<Option target="visualize_new"/>
+		</Unit>
 		<Unit filename="/Users/sdoughnu/Desktop/new/visualize_new/src/error.c">
 			<Option target="visualize_new"/>
 		</Unit>
