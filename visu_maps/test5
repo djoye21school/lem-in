@@ -2,11 +2,11 @@
 ##snorlax
 room4 800 500
 ##lava
-room1 101 25
-room2 1000 1000
-room3 3 200
+room1 300 250
+room2 500 250
+room3 700 250
 ##start
-start 500 600
+start 500 60
 ##end
 end 500 450
 room1-start

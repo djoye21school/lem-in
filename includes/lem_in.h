@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/23 17:13:02 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/24 15:13:06 by sdoughnu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define BUFF_SIZE 1000000
 
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 # include <string.h>
 # include <ctype.h>
 # include <unistd.h>
