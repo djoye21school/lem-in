@@ -40,7 +40,19 @@ unistd.h
 stdlib.h
 -
 
+/Users/sdoughnu/Desktop/lem-in/visualize_new/src/add_arr.c
+../include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
+
 /Users/sdoughnu/Desktop/lem-in/visualize_new/src/connect.c
+../include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
+
+/Users/sdoughnu/Desktop/lem-in/visualize_new/src/coord.c
+../include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
+
+/Users/sdoughnu/Desktop/lem-in/visualize_new/src/error.c
 ../include/lem_in_viz.h
 /Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
 
@@ -48,7 +60,15 @@ stdlib.h
 ../include/lem_in_viz.h
 /Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
 
+/Users/sdoughnu/Desktop/lem-in/visualize_new/src/new.c
+../include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
+
 /Users/sdoughnu/Desktop/lem-in/visualize_new/src/valid.c
+../include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
+
+/Users/sdoughnu/Desktop/lem-in/visualize_new/src/valid_help.c
 ../include/lem_in_viz.h
 /Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
 

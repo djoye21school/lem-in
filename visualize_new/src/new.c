@@ -34,7 +34,7 @@ int			add_pat(t_stack *new, t_path *pat)
 	r = 0;
 	if (pat->now == pat->size - 1)
 	{
-		if (!(aaa = ft_memalloc(sizeof(t_stack *) + (pat->size + 15))))
+		if (!(aaa = ft_memalloc(sizeof(t_stack *) * (pat->size + 15))))
 			return (1);
 		while (r <= pat->now)
 		{

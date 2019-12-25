@@ -1797,6 +1797,33 @@ src/connect.c.s:
 	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/connect.c.s
 .PHONY : src/connect.c.s
 
+src/coord.o: src/coord.c.o
+
+.PHONY : src/coord.o
+
+# target to build an object file
+src/coord.c.o:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/coord.c.o
+.PHONY : src/coord.c.o
+
+src/coord.i: src/coord.c.i
+
+.PHONY : src/coord.i
+
+# target to preprocess a source file
+src/coord.c.i:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/coord.c.i
+.PHONY : src/coord.c.i
+
+src/coord.s: src/coord.c.s
+
+.PHONY : src/coord.s
+
+# target to generate assembly for a file
+src/coord.c.s:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/coord.c.s
+.PHONY : src/coord.c.s
+
 src/error.o: src/error.c.o
 
 .PHONY : src/error.o
@@ -2154,6 +2181,9 @@ help:
 	@echo "... src/connect.o"
 	@echo "... src/connect.i"
 	@echo "... src/connect.s"
+	@echo "... src/coord.o"
+	@echo "... src/coord.i"
+	@echo "... src/coord.s"
 	@echo "... src/error.o"
 	@echo "... src/error.i"
 	@echo "... src/error.s"

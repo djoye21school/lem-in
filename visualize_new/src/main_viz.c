@@ -55,7 +55,7 @@ char	*output_lem_in(int fd)
 void	init_lem(t_path **pat)
 {
 	if (!(*pat = (t_path*)malloc(sizeof(t_path))))
-		error_inlem(NULL);
+		error_inlem(NULL, 1);
 	(*pat)->start.name = NULL;
 	(*pat)->end.name = NULL;
 	(*pat)->arr = NULL;
@@ -70,24 +70,22 @@ void	init_sdl(t_sdl *yep)
 		error_st(0, yep);
 	if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG)
 		error_img(0, yep);
-	if (!(yep->win = SDL_CreateWindow("VLADIMIRRRRRRR  SUPER GOOD", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-	        4000, 2000, SDL_WINDOW_FULLSCREEN)))
+	if (!(yep->win = SDL_CreateWindow("Lem_In | djoye && sdoughnu", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+			WIN_W, WIN_H, SDL_WINDOW_SHOWN)))
 	    error_st(1, yep);
-
 	if (!(yep->ren = SDL_CreateRenderer(yep->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
 		error_st(1, yep);
 	if (!(yep->fon = IMG_LoadTexture(yep->ren, "../pic/mmm.bmp")))
 		error_img(1, yep);
-    SDL_SetTextureBlendMode(yep->fon, SDL_BLENDMODE_NONE);
-
-
-	if (!(yep->ant = IMG_LoadTexture(yep->ren, "../pic/ant1.png")))
+	SDL_SetTextureBlendMode(yep->fon, SDL_BLENDMODE_NONE);
+    if (!(yep->ant = IMG_LoadTexture(yep->ren, "../pic/ant1.png")))
 		error_img(1, yep);
 	if (!(yep->house = IMG_LoadTexture(yep->ren, "../pic/house.png")))
 		error_img(1, yep);
 }
 
-int		main(int ac, char **av) {
+int		main(int ac, char **av)
+{
     char *str;
     char *s;
     t_sdl yep;
@@ -95,40 +93,19 @@ int		main(int ac, char **av) {
 
     int fd;
     fd = open("test", O_RDONLY);
-    printf("%d\n", fd);
     str = output_lem_in(fd);
     if (str == NULL)
-        error_inlem(str);
+        error_inlem(str, 1);
     if (!(ft_strcmp("Error\n", str)))
-        error_inlem(str);
+        error_inlem(str, 1);
     init_lem(&pat);
     if (!(s = is_valid(str, pat)))
-        error_inlem(str);
-//    printf("STOOOOP\n");
-//    printf("%s - ", pat->arr[0]->name);
-//    printf("%s - ", pat->arr[0]->next->name);
-//    printf("%s - ", pat->arr[0]->next->next->name);
-//    printf("\n%ld x ", pat->arr[0]->next->next->x);
-//    printf("\n%ld y ", pat->arr[0]->next->next->y);
-//    printf("%s - ", pat->arr[0]->next->next->next->name);
-//    printf("\n%ld x ", pat->arr[0]->next->next->next->x);
-//    printf("\n%ld y ", pat->arr[0]->next->next->next->y);
-//        t_stack *buf;
-//        int i = 0;
-//        while (i < pat->now)
-//        {
-//            buf = pat->arr[i];
-//            while (buf)
-//            {
-//                printf("%s - ", buf->name);
-//                buf = buf->next;
-//            }
-//            printf("\n");
-//            i++;
-//        }
-    init_sdl(&yep);
-
-	vizu(&yep, pat, s);
+        error_inlem(str, 1);
+    if (new_coor(pat, &yep))
+    	error_inlem(str, 0);
+	init_sdl(&yep);
+	if (!vizu(&yep, pat, s))
+		error_st(1, &yep);
 	return (0);
 }
 

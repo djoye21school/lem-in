@@ -12,7 +12,7 @@
 
 #include "../include/lem_in_viz.h"
 
-int			event(void)
+int			event(t_path *pat, t_sdl *yep, char *str)
 {
   	SDL_Event e;
 
@@ -24,6 +24,8 @@ int			event(void)
 		  {
 		    if (e.key.keysym.sym == SDLK_ESCAPE)
 		      return (0);
+		  //  else if (e.key.keysym.sym == SDLK_RETURN)
+		   // 	move_ant(pat, yep, str);
 		  }
 	}
 	  return (1);
@@ -56,9 +58,14 @@ int 	init_coordinates(t_path *pat, t_sdl *yep)
     return (0);
 }
 
-int     init(t_path *pat, t_sdl *yep)
+int     draw_house(t_path *pat, t_sdl *yep)
 {
-    int i = 0;
+    int i;
+
+    i = 0;
+	init_coordinates(pat, yep);
+	if (!draw_line(pat, yep))
+		return (0);
     while (i <= pat->now)
     {
         yep->srcr.x = pat->arr[i]->x;
@@ -68,7 +75,7 @@ int     init(t_path *pat, t_sdl *yep)
             error_st(1, yep);
         i++;
     }
-    return (0);
+    return (1);
 }
 
 int 	vizu(t_sdl *yep, t_path *pat, char *str)
@@ -76,25 +83,21 @@ int 	vizu(t_sdl *yep, t_path *pat, char *str)
   	int 		q;
   	t_stack		*ant;
 
-
-
   	q = 1;
   	ant = NULL;
   	if (!init_ants(ant, pat))
   		return (0);
-    init_coordinates(pat, yep);
   	while (q)
   	{
         SDL_SetRenderTarget(yep->ren, yep->fon);
 		if (SDL_RenderCopy(yep->ren, yep->fon, NULL, NULL) != 0)
 			error_st(1, yep);
-        init(pat, yep);
+        if (!draw_house(pat, yep))
+        	return (0);
+        //draw_name(pat, yep);
 		SDL_RenderPresent(yep->ren);
-		q = event();
-  		//house_stay(t_path *pat);
-  		//ants_go(t_path *pat);
+		q = event(pat, yep, str);
   	}
   	quit(yep);
   	return (1);
 }
-

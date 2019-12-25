@@ -27,6 +27,13 @@
 # include <sys/stat.h>
 # include "../libft/libft.h"
 
+#define WIN_H 1000
+#define WIN_W 1300
+#define house_w 150
+#define house_h 150
+#define onx (house_w / 2)
+#define ony (house_h / 2)
+
 typedef struct		s_sdl
 {
 	SDL_Window		*win;
@@ -38,8 +45,6 @@ typedef struct		s_sdl
 	SDL_Texture 	*ant;
 	SDL_Texture		*end;
 	int				ant_rect;
-	int				win_x;
-	int				win_y;
 	SDL_Texture		*house;
 	SDL_Rect		srcr;
 	SDL_Rect		destr;
@@ -67,8 +72,18 @@ typedef struct		s_path
 	t_stack 		end;
 }					t_path;
 
+typedef struct		s_ttf
+{
+	int				ant;
+	long			size;
+	long			now;
+	t_stack 		ants;
+	t_stack			**arr;
+	t_stack			start;
+	t_stack 		end;
+}					t_ttf;
 
-void	error_inlem(char *str);
+void	error_inlem(char *str, int i);
 void 	error_st(int i, t_sdl *yep);
 void	error_img(int i, t_sdl *yep);
 void	quit(t_sdl *yep);
@@ -98,5 +113,10 @@ t_stack	*new_stack(char *st, int iter, int x, int y);
 int 	vizu(t_sdl *yep, t_path *pat, char *str);
 int 	init_coordinates(t_path *pat, t_sdl *yep);
 int     ox_eeee(t_path *pat, char *str);
+
+int 		new_coor(t_path *pat, t_sdl *yep);
+//int 		draw_name(t_path *pat, t_sdl *yep);
+int 		draw_line(t_path *pat, t_sdl *yep);
+int 	move_ant(t_path *pat, t_sdl *yep, char *str);
 
 #endif

@@ -35,10 +35,11 @@ void	quit(t_sdl *yep)
 	SDL_Quit();
 }
 
-void	error_inlem(char *str)
+void	error_inlem(char *str, int i)
 {
 	ft_strdel(&str);
-	printf("%s\n", "Error\n");
+	if (i)
+		printf("%s\n", "Error\n");
 	exit(0);
 }
 

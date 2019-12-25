@@ -7,6 +7,7 @@ include_directories(include)
 include_directories(libft)
 include_directories(~/Library/Frameworks/SDL2.framework/Headers)
 include_directories(~/Library/Frameworks/SDL2_image.framework/Headers)
+include_directories(~/Library/Frameworks/SDL2_ttf.framework/Headers)
 
 add_executable(visualize_new
         include/lem_in_viz.h
@@ -78,11 +79,13 @@ add_executable(visualize_new
         src/valid.c
         src/valid_help.c
         src/vizu.c
+        src/coord.c
         src/connect.c
         cmake-build-debug/test)
 
 target_link_libraries(visualize_new "-framework SDL2")
 target_link_libraries(visualize_new "-framework SDL2_image")
+target_link_libraries(visualize_new "-framework SDL2_ttf")
 
 set_target_properties(visualize_new PROPERTIES LINK_FLAGS "-F /Users/$ENV{USER}/Library/Frameworks")
 
