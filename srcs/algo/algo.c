@@ -6,23 +6,23 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/23 19:56:13 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/25 19:38:00 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-t_routes		*count_step(t_routes *routes)
+t_head		*count_step(t_head *head)
 {
 	t_room		*tmp;
 	int			i;
 	int			c;
 
 	c = 0;
-	while (routes->start[c])
+	while (head->routes[c])
 	{
 		i = 1;
-		tmp = routes->start[c];
+		tmp = head->routes[c];
 		while (tmp)
 		{
 			printf("%s -> ", tmp->name);
@@ -32,21 +32,21 @@ t_routes		*count_step(t_routes *routes)
 			i++;
 		}
 		printf("\n");
-		routes->step[c] = i;
+		head->step[c] = i;
 		c++;
 	}
-	return (routes);
+	return (head);
 }
 
-int				if_free_route(t_routes *routes)
+int				if_free_route(t_head *head)
 {
 	int			c;
 	t_room		*tmp;
 
 	c = 0;
-	while (routes->start[c])
+	while (head->routes[c])
 	{
-		tmp = routes->start[c];
+		tmp = head->routes[c];
 		while (tmp)
 		{
 			if (tmp->lem_id != 0 && !ft_strequ(tmp->name, "end"))
@@ -58,19 +58,19 @@ int				if_free_route(t_routes *routes)
 	return (0);
 }
 
-t_routes		*lem_go(t_head *head, t_routes *routes)
+t_head		*lem_go(t_head *head)
 {
 	int			i;
 	int			c;
 	t_room		*tmp;
 
 	i = 1;
-	while (i <= head->count_lem || if_free_route(routes))
+	while (i <= head->count_lem || if_free_route(head))
 	{
 		c = -1;
-		while (routes->start[++c])
+		while (head->routes[++c])
 		{
-			tmp = routes->start[c];
+			tmp = head->routes[c];
 			while (tmp->next)
 				if (tmp->lem_id != 0 && tmp->next->lem_id == 0)
 					break ;
@@ -85,20 +85,19 @@ t_routes		*lem_go(t_head *head, t_routes *routes)
 					tmp->lem_id = 0;
 				else
 					tmp = tmp->prev;
-			if (routes->start[c]->lem_id == 0 && i <= head->count_lem &&
-			(routes->start[c]->lem_id = i++))
-				printf("L%d-%s ", routes->start[c]->lem_id, routes->start[c]->name);
+			if (head->routes[c]->lem_id == 0 && i <= head->count_lem &&
+			(head->routes[c]->lem_id = i++))
+				printf("L%d-%s ", head->routes[c]->lem_id, head->routes[c]->name);
 		}
 		printf("\n");
 	}
-	return (routes);
+	return (head);
 }
 
-t_head		*add_queue(t_head *head)
+t_room		*add_queue(t_head *head)
 {
 	int		i;
 	t_room	*room;
-	int		level;
 
 	if (!head->q_stack && head->start->visit == 0)
 	{
@@ -106,11 +105,11 @@ t_head		*add_queue(t_head *head)
 		head->q_last = head->start;
 		head->start->visit = 1;
 		head->q_stack->level = 0;
-		return (head);
+		return (head->q_stack);
 	}
-	i = 0;
+	i = -1;
 	room = head->q_stack;
-	while (head->q_stack && head->q_stack->link[i])
+	while (head->q_stack && head->q_stack->link[++i])
 	{
 		if (head->q_stack->link[i]->visit == 0)
 		{
@@ -120,10 +119,8 @@ t_head		*add_queue(t_head *head)
 			head->q_stack->link[i]->prev = room;
 			head->q_last = head->q_last->queue;
 		}
-		i++;
 	}
-	pop_queue(head);
-	return (head);
+	return (pop_queue(head));
 }
 
 t_room			*pop_queue(t_head *head)
@@ -164,13 +161,12 @@ t_head			*create_routes(t_head *head)
 	int			i;
 
 	i = 0;
-	head->routes = (t_routes*)malloc(sizeof(t_routes));
 	while (head->start->link[i])
 		i++;
 	head->count_route = i;
-	head->routes->start = (t_room**)malloc(sizeof(t_room*) * (i + 1));
-	head->routes->step = (int*)malloc(sizeof(int));
-	head->routes->start[i] = NULL;
+	head->routes = (t_room**)malloc(sizeof(t_room*) * (i + 1));
+	head->step = (int*)malloc(sizeof(int));
+	head->routes[i] = NULL;
 	return (head);
 }
 
@@ -191,26 +187,28 @@ t_head			*route(t_head *head)
 		tmp->next = room;
 	}
 	i = 0;
-	while (head->routes->start[i])
+	while (head->routes[i])
 		i++;
-	head->routes->start[i] = tmp;
-	head->routes->start[i + 1] = NULL;
+	head->routes[i] = tmp;
+	head->routes[i + 1] = NULL;
 	return (head);
 }
 
 t_head			*algo(t_head *head)
 {
-	while(!check_end(head))
+	while (!check_end(head))
 	{
 		print_stack(head);
 		printf("----------\n");
 		add_queue(head);
+		if (!head->q_stack)
+			break ;
 	}
 	clear_room_attribute(head);
 	return (head);
 }
 
-t_head 			*clear_room_attribute(t_head *head)
+t_head			*clear_room_attribute(t_head *head)
 {
 	t_room		*room;
 
