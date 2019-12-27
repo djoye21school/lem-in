@@ -6,98 +6,16 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/25 19:38:00 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/27 16:11:17 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-t_head		*count_step(t_head *head)
-{
-	t_room		*tmp;
-	int			i;
-	int			c;
-
-	c = 0;
-	while (head->routes[c])
-	{
-		i = 1;
-		tmp = head->routes[c];
-		while (tmp)
-		{
-			printf("%s -> ", tmp->name);
-			tmp->lem_id = 0;
-			tmp->level = i;
-			tmp = tmp->next;
-			i++;
-		}
-		printf("\n");
-		head->step[c] = i;
-		c++;
-	}
-	return (head);
-}
-
-int				if_free_route(t_head *head)
-{
-	int			c;
-	t_room		*tmp;
-
-	c = 0;
-	while (head->routes[c])
-	{
-		tmp = head->routes[c];
-		while (tmp)
-		{
-			if (tmp->lem_id != 0 && !ft_strequ(tmp->name, "end"))
-				return (1);
-			tmp = tmp->next;
-		}
-		c++;
-	}
-	return (0);
-}
-
-t_head		*lem_go(t_head *head)
+t_room			*add_queue(t_head *head)
 {
 	int			i;
-	int			c;
-	t_room		*tmp;
-
-	i = 1;
-	while (i <= head->count_lem || if_free_route(head))
-	{
-		c = -1;
-		while (head->routes[++c])
-		{
-			tmp = head->routes[c];
-			while (tmp->next)
-				if (tmp->lem_id != 0 && tmp->next->lem_id == 0)
-					break ;
-				else
-					tmp = tmp->next;
-			if (tmp->next == NULL && (tmp->lem_id = 0) == 0)
-				tmp = tmp->prev;
-			while (tmp && tmp->next && tmp->prev)
-				if (tmp->lem_id != 0 && tmp->next->lem_id == 0 &&
-				(tmp->next->lem_id = tmp->lem_id) &&
-				printf("L%d-%s ", tmp->next->lem_id, tmp->next->name))
-					tmp->lem_id = 0;
-				else
-					tmp = tmp->prev;
-			if (head->routes[c]->lem_id == 0 && i <= head->count_lem &&
-			(head->routes[c]->lem_id = i++))
-				printf("L%d-%s ", head->routes[c]->lem_id, head->routes[c]->name);
-		}
-		printf("\n");
-	}
-	return (head);
-}
-
-t_room		*add_queue(t_head *head)
-{
-	int		i;
-	t_room	*room;
+	t_room		*room;
 
 	if (!head->q_stack && head->start->visit == 0)
 	{
@@ -137,25 +55,6 @@ t_room			*pop_queue(t_head *head)
 	return (tmp);
 }
 
-int				check_end(t_head *head)
-{
-	int			i;
-
-	i = 0;
-	while (head->q_stack && head->q_stack->link[i])
-	{
-		if (head->q_stack->link[i] == head->end)
-		{
-			printf("%s\n", head->q_stack->name);
-			route(head);
-			head->count_route -= 1;
-			return (1);
-		}
-		i++;
-	}
-	return (0);
-}
-
 t_head			*create_routes(t_head *head)
 {
 	int			i;
@@ -165,8 +64,15 @@ t_head			*create_routes(t_head *head)
 		i++;
 	head->count_route = i;
 	head->routes = (t_room**)malloc(sizeof(t_room*) * (i + 1));
-	head->step = (int*)malloc(sizeof(int));
-	head->routes[i] = NULL;
+	head->last_ant = (t_room**)malloc(sizeof(t_room*) * (i + 1));
+	head->step = (int*)malloc(sizeof(int) * (i + 1));
+	while (i >= 0)
+	{
+		head->routes[i] = NULL;
+		head->last_ant[i] = NULL;
+		head->step[i] = 0;
+		i--;
+	}
 	return (head);
 }
 
@@ -175,36 +81,24 @@ t_head			*route(t_head *head)
 	t_room		*tmp;
 	t_room		*room;
 	int			i;
+	int			step;
 
-	if (!head->routes)
-		create_routes(head);
 	tmp = head->q_stack;
 	tmp->next = head->end;
+	step = 2;
 	while (tmp && tmp->prev && tmp->prev != head->start)
 	{
 		room = tmp;
 		tmp = tmp->prev;
 		tmp->next = room;
+		step++;
 	}
 	i = 0;
 	while (head->routes[i])
 		i++;
 	head->routes[i] = tmp;
+	head->step[i] = step;
 	head->routes[i + 1] = NULL;
-	return (head);
-}
-
-t_head			*algo(t_head *head)
-{
-	while (!check_end(head))
-	{
-		print_stack(head);
-		printf("----------\n");
-		add_queue(head);
-		if (!head->q_stack)
-			break ;
-	}
-	clear_room_attribute(head);
 	return (head);
 }
 
