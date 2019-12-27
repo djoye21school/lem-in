@@ -69,3 +69,35 @@ char 		*ft_strcut(char *str, char d)
 	s[i] = '\0';
 	return (s);
 }
+
+SDL_Rect 	init_cor(int x, int y, int w, int h)
+{
+	SDL_Rect	r;
+
+	r.x = x;
+	r.y = y;
+	r.w = w;
+	r.h = h;
+	return (r);
+}
+
+void		end(t_stack **ant, int t)
+{
+	int i;
+
+	i = 0;
+	while (i < t)
+	{
+		if (ant[i]->move)
+		{
+			ant[i]->x = ant[i]->nx;
+			ant[i]->y = ant[i]->ny;
+			ant[i]->nx = -1;
+			ant[i]->ny = -1;
+			ant[i]->px = -1;
+			ant[i]->py = -1;
+			ant[i]->move = 0;
+		}
+		i++;
+	}
+}

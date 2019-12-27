@@ -25,7 +25,6 @@ void 	error_st(int i, t_sdl *yep)
 
 void	quit(t_sdl *yep)
 {
-	SDL_DestroyTexture(yep->start);
 	SDL_DestroyTexture(yep->fon);
 	SDL_DestroyTexture(yep->ant);
 	SDL_DestroyTexture(yep->end);

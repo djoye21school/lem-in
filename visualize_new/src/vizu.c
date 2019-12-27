@@ -12,9 +12,10 @@
 
 #include "../include/lem_in_viz.h"
 
-int			event(t_path *pat, t_sdl *yep, char *str)
+int			event(t_path *pat, t_sdl *yep, char *str, t_stack **ant)
 {
   	SDL_Event e;
+  	int p = 1;
 
   	while (SDL_PollEvent(&e))
 	{
@@ -24,29 +25,39 @@ int			event(t_path *pat, t_sdl *yep, char *str)
 		  {
 		    if (e.key.keysym.sym == SDLK_ESCAPE)
 		      return (0);
-		  //  else if (e.key.keysym.sym == SDLK_RETURN)
-		   // 	move_ant(pat, yep, str);
+		    else if (e.key.keysym.sym == SDLK_RIGHT)
+				return (move_ant(pat, yep, str, ant));
 		  }
 	}
 	  return (1);
 }
 
 
-int 	init_ants(t_stack *ant, t_path *pat)
+t_stack 	**init_ants(t_path *pat)
 {
-	int		i;
+	int		k;
+	t_stack **ant;
 
-	i = 0;
-	if (!(ant = (t_stack*)malloc(sizeof(t_stack) * (pat->ant))))
+	k = 0;
+	if (!(ant = (t_stack**)malloc(sizeof(t_stack*) * (pat->ant))))
 		return (0);
-	while (i < pat->ant)
+	while (k < pat->ant)
 	{
-		ant[i].i = i;
-		ant[i].x = pat->start.x;
-		ant[i].y = pat->start.y;
-		i++;
+		if (!(ant[k] = (t_stack*)malloc(sizeof(t_stack) * 1)))
+			return (NULL);
+		ant[k]->i = k;
+		ant[k]->x = pat->start.x;
+		ant[k]->y = pat->start.y;
+		ant[k]->px = -1;
+		ant[k]->py = -1;
+		ant[k]->nx = -1;
+		ant[k]->ny = -1;
+		ant[k]->move = 0;
+		ant[k]->speed = 1;
+		ant[k]->next = NULL;
+		k = k + 1;
 	}
-	return (1);
+	return (ant);
 }
 
 
@@ -81,11 +92,10 @@ int     draw_house(t_path *pat, t_sdl *yep)
 int 	vizu(t_sdl *yep, t_path *pat, char *str)
 {
   	int 		q;
-  	t_stack		*ant;
+  	t_stack		**ant;
 
   	q = 1;
-  	ant = NULL;
-  	if (!init_ants(ant, pat))
+  	if (!(ant = init_ants(pat)))
   		return (0);
   	while (q)
   	{
@@ -94,9 +104,8 @@ int 	vizu(t_sdl *yep, t_path *pat, char *str)
 			error_st(1, yep);
         if (!draw_house(pat, yep))
         	return (0);
-        //draw_name(pat, yep);
 		SDL_RenderPresent(yep->ren);
-		q = event(pat, yep, str);
+		q = event(pat, yep, str, ant);
   	}
   	quit(yep);
   	return (1);

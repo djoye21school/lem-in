@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lemin/visualize_new/include/lem_in_viz.h
 stdio.h
 -
 stdlib.h
 -
 SDL.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/SDL.h
+/Users/sdoughnu/Desktop/lemin/visualize_new/include/SDL.h
 SDL_image.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/SDL_image.h
+/Users/sdoughnu/Desktop/lemin/visualize_new/include/SDL_image.h
 unistd.h
 -
 fcntl.h
@@ -31,50 +31,24 @@ sys/types.h
 -
 sys/stat.h
 -
+stdbool.h
+-
 ../libft/libft.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/libft.h
+/Users/sdoughnu/Desktop/lemin/visualize_new/libft/libft.h
 
-/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/libft.h
+/Users/sdoughnu/Desktop/lemin/visualize_new/libft/libft.h
 unistd.h
 -
 stdlib.h
 -
 
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/add_arr.c
+/Users/sdoughnu/Desktop/lemin/visualize_new/src/coord.c
 ../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lemin/visualize_new/include/lem_in_viz.h
 
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/connect.c
+/Users/sdoughnu/Desktop/lemin/visualize_new/src/move2.c
 ../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
-
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/coord.c
-../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
-
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/error.c
-../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
-
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/main_viz.c
-../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
-
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/new.c
-../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
-
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/valid.c
-../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
-
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/valid_help.c
-../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
-
-/Users/sdoughnu/Desktop/lem-in/visualize_new/src/vizu.c
-../include/lem_in_viz.h
-/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h
+/Users/sdoughnu/Desktop/lemin/visualize_new/include/lem_in_viz.h
 
 /Users/sdoughnu/Library/Frameworks/SDL2.framework/Headers/SDL.h
 SDL_main.h

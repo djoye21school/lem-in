@@ -8,44 +8,44 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="visualize_new">
-				<Option output="/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/visualize_new" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug"/>
+				<Option output="/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/visualize_new" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/sdoughnu/Desktop/lem-in/visualize_new/include"/>
-					<Add directory="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft"/>
+					<Add directory="/Users/sdoughnu/Desktop/lemin/visualize_new/include"/>
+					<Add directory="/Users/sdoughnu/Desktop/lemin/visualize_new/libft"/>
 					<Add directory="/Users/sdoughnu/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Users/sdoughnu/Library/Frameworks/SDL2_image.framework/Headers"/>
 					<Add directory="/Users/sdoughnu/Library/Frameworks/SDL2_ttf.framework/Headers"/>
@@ -58,21 +58,21 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 visualize_new"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 visualize_new"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="visualize_new/fast">
-				<Option output="/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/visualize_new" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug"/>
+				<Option output="/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/visualize_new" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Users/sdoughnu/Desktop/lem-in/visualize_new/include"/>
-					<Add directory="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft"/>
+					<Add directory="/Users/sdoughnu/Desktop/lemin/visualize_new/include"/>
+					<Add directory="/Users/sdoughnu/Desktop/lemin/visualize_new/libft"/>
 					<Add directory="/Users/sdoughnu/Library/Frameworks/SDL2.framework/Headers"/>
 					<Add directory="/Users/sdoughnu/Library/Frameworks/SDL2_image.framework/Headers"/>
 					<Add directory="/Users/sdoughnu/Library/Frameworks/SDL2_ttf.framework/Headers"/>
@@ -85,230 +85,236 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 visualize_new/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 visualize_new/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/test">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/test">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/include/lem_in_viz.h">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/include/lem_in_viz.h">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_atoi.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_atoi.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_bzero.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_bzero.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_isalnum.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_isalnum.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_isalpha.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_isalpha.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_isascii.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_isascii.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_isdigit.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_isdigit.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_isprint.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_isprint.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_itoa.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_itoa.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_lstadd.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_lstadd.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_lstdel.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_lstdel.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_lstdelone.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_lstdelone.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_lstiter.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_lstiter.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_lstmap.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_lstmap.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_lstnew.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_lstnew.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_memalloc.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_memalloc.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_memccpy.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_memccpy.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_memchr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_memchr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_memcmp.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_memcmp.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_memcpy.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_memcpy.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_memdel.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_memdel.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_memmove.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_memmove.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_memset.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_memset.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_putchar.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_putchar.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_putchar_fd.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_putchar_fd.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_putendl.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_putendl.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_putendl_fd.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_putendl_fd.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_putnbr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_putnbr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_putnbr_fd.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_putnbr_fd.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_putstr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_putstr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_putstr_fd.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_putstr_fd.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strcat.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strcat.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strchr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strchr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strclr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strclr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strcmp.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strcmp.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strcpy.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strcpy.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strdel.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strdel.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strdup.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strdup.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strequ.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strequ.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_striter.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_striter.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_striteri.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_striteri.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strjoin.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strjoin.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strlcat.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strlcat.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strlen.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strlen.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strmap.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strmap.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strmapi.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strmapi.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strncat.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strncat.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strncmp.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strncmp.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strncpy.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strncpy.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strnequ.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strnequ.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strnew.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strnew.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strnstr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strnstr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strrchr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strrchr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strrev.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strrev.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strsplit.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strsplit.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strstr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strstr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strsub.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strsub.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_strtrim.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_strtrim.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_swap.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_swap.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_tolower.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_tolower.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/ft_toupper.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/ft_toupper.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/libft/libft.h">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/libft/libft.h">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/add_arr.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/add_arr.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/connect.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/connect.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/coord.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/coord.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/error.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/error.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/main_viz.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/main_viz.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/new.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/move.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/valid.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/move2.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/valid_help.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/new.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/src/vizu.c">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/valid.c">
 			<Option target="visualize_new"/>
 		</Unit>
-		<Unit filename="/Users/sdoughnu/Desktop/lem-in/visualize_new/CMakeLists.txt">
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/valid_help.c">
+			<Option target="visualize_new"/>
+		</Unit>
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/src/vizu.c">
+			<Option target="visualize_new"/>
+		</Unit>
+		<Unit filename="/Users/sdoughnu/Desktop/lemin/visualize_new/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

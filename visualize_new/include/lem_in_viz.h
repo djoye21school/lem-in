@@ -25,6 +25,7 @@
 # include <aio.h>
 # include <sys/types.h>
 # include <sys/stat.h>
+# include <stdbool.h>
 # include "../libft/libft.h"
 
 #define WIN_H 1000
@@ -33,6 +34,10 @@
 #define house_h 150
 #define onx (house_w / 2)
 #define ony (house_h / 2)
+#define PL 1
+#define MIN 0
+#define X 1
+#define Y 0
 
 typedef struct		s_sdl
 {
@@ -44,10 +49,10 @@ typedef struct		s_sdl
 	SDL_Texture		*start;
 	SDL_Texture 	*ant;
 	SDL_Texture		*end;
-	int				ant_rect;
+
 	SDL_Texture		*house;
 	SDL_Rect		srcr;
-	SDL_Rect		destr;
+
 }					t_sdl;
 
 typedef struct		s_stack
@@ -56,8 +61,17 @@ typedef struct		s_stack
 	long			i;
 	long 			x;
 	long 			y;
-	float 			dx;
-	float 			dy;
+	float 			px;
+	float 			py;
+	float 			nx;
+	float 			ny;
+	float 			difx;
+	float 			dify;
+	int 			speed;
+	float			itog_X;
+	float 			itog_Y;
+	int 			move;
+	SDL_Rect 		hey;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -66,22 +80,10 @@ typedef struct		s_path
 	int				ant;
 	long			size;
 	long			now;
-	t_stack 		ants;
 	t_stack			**arr;
 	t_stack			start;
 	t_stack 		end;
 }					t_path;
-
-typedef struct		s_ttf
-{
-	int				ant;
-	long			size;
-	long			now;
-	t_stack 		ants;
-	t_stack			**arr;
-	t_stack			start;
-	t_stack 		end;
-}					t_ttf;
 
 void	error_inlem(char *str, int i);
 void 	error_st(int i, t_sdl *yep);
@@ -115,8 +117,17 @@ int 	init_coordinates(t_path *pat, t_sdl *yep);
 int     ox_eeee(t_path *pat, char *str);
 
 int 		new_coor(t_path *pat, t_sdl *yep);
-//int 		draw_name(t_path *pat, t_sdl *yep);
+int     draw_house(t_path *pat, t_sdl *yep);
+t_stack 	*find_stack(t_path *pat, char *name);
 int 		draw_line(t_path *pat, t_sdl *yep);
-int 	move_ant(t_path *pat, t_sdl *yep, char *str);
+int 	move_ant(t_path *pat, t_sdl *yep, char *str, t_stack **ant);
+
+char 	*record(char *str, t_path *pat, t_stack **ant);
+int 	draw_ants(t_path *pat, t_sdl *yep, t_stack **ant);
+void 	calculator(bool coor, bool plmin, t_stack **ant, int i);
+SDL_Rect 	init_cor(int x, int y, int w, int h);
+void	go_right_now(t_sdl *yep, t_stack **ant, t_path *pat);
+
+void		end(t_stack **ant, int t);
 
 #endif

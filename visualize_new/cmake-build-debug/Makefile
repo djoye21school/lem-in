@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
+CMAKE_COMMAND = /Users/sdoughnu/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
+RM = /Users/sdoughnu/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/sdoughnu/Desktop/lem-in/visualize_new
+CMAKE_SOURCE_DIR = /Users/sdoughnu/Desktop/lemin/visualize_new
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debu
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/Users/sdoughnu/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/Users/sdoughnu/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/CMakeFiles /Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/CMakeFiles /Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sdoughnu/Desktop/lem-in/visualize_new/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/sdoughnu/Desktop/lemin/visualize_new/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -1878,6 +1878,60 @@ src/main_viz.c.s:
 	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/main_viz.c.s
 .PHONY : src/main_viz.c.s
 
+src/move.o: src/move.c.o
+
+.PHONY : src/move.o
+
+# target to build an object file
+src/move.c.o:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/move.c.o
+.PHONY : src/move.c.o
+
+src/move.i: src/move.c.i
+
+.PHONY : src/move.i
+
+# target to preprocess a source file
+src/move.c.i:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/move.c.i
+.PHONY : src/move.c.i
+
+src/move.s: src/move.c.s
+
+.PHONY : src/move.s
+
+# target to generate assembly for a file
+src/move.c.s:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/move.c.s
+.PHONY : src/move.c.s
+
+src/move2.o: src/move2.c.o
+
+.PHONY : src/move2.o
+
+# target to build an object file
+src/move2.c.o:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/move2.c.o
+.PHONY : src/move2.c.o
+
+src/move2.i: src/move2.c.i
+
+.PHONY : src/move2.i
+
+# target to preprocess a source file
+src/move2.c.i:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/move2.c.i
+.PHONY : src/move2.c.i
+
+src/move2.s: src/move2.c.s
+
+.PHONY : src/move2.s
+
+# target to generate assembly for a file
+src/move2.c.s:
+	$(MAKE) -f CMakeFiles/visualize_new.dir/build.make CMakeFiles/visualize_new.dir/src/move2.c.s
+.PHONY : src/move2.c.s
+
 src/new.o: src/new.c.o
 
 .PHONY : src/new.o
@@ -2190,6 +2244,12 @@ help:
 	@echo "... src/main_viz.o"
 	@echo "... src/main_viz.i"
 	@echo "... src/main_viz.s"
+	@echo "... src/move.o"
+	@echo "... src/move.i"
+	@echo "... src/move.s"
+	@echo "... src/move2.o"
+	@echo "... src/move2.i"
+	@echo "... src/move2.s"
 	@echo "... src/new.o"
 	@echo "... src/new.i"
 	@echo "... src/new.s"

@@ -81,6 +81,8 @@ add_executable(visualize_new
         src/vizu.c
         src/coord.c
         src/connect.c
+        src/move.c
+        src/move2.c
         cmake-build-debug/test)
 
 target_link_libraries(visualize_new "-framework SDL2")

@@ -40,17 +40,6 @@ int 		new_coor(t_path *pat, t_sdl *yep)
 	return (0);
 }
 
-//int 		draw_name(t_path *pat, t_sdl *yep)
-//{
-//	int i;
-//
-//	i = 0;
-//	while (i <= pat->now)
-//	{
-//		TTF_Size_Text(NULL, );
-//	}
-//}
-
 t_stack 	*find_stack(t_path *pat, char *name)
 {
 	int i;
@@ -99,8 +88,22 @@ int 		draw_line(t_path *pat, t_sdl *yep)
 	return (1);
 }
 
-int 	move_ant(t_path *pat, t_sdl *yep, char *str)
+int 	move_ant(t_path *pat, t_sdl *yep, char *str, t_stack **ant)
 {
-
+	printf("1123441\n");
+	if (!*str)
+		return (0);
+	while (*str && *str != '\n')
+	{
+		str = record(str, pat, ant);
+		SDL_SetRenderTarget(yep->ren, yep->fon);
+		if (SDL_RenderCopy(yep->ren, yep->fon, NULL, NULL) != 0)
+			error_st(1, yep);
+		if (!draw_house(pat, yep))
+			return (0);
+	}
+	if (*str == '\n')
+		str++;
+	draw_ants(pat, yep, ant);
 	return (1);
 }

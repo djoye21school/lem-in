@@ -75,8 +75,13 @@ void	init_sdl(t_sdl *yep)
 	    error_st(1, yep);
 	if (!(yep->ren = SDL_CreateRenderer(yep->win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC)))
 		error_st(1, yep);
+	if (SDL_SetRenderDrawColor(yep->ren, 255, 255, 255, 255))
+		error_st(1, yep);
 	if (!(yep->fon = IMG_LoadTexture(yep->ren, "../pic/mmm.bmp")))
+	{
+		printf("rop\n");
 		error_img(1, yep);
+	}
 	SDL_SetTextureBlendMode(yep->fon, SDL_BLENDMODE_NONE);
     if (!(yep->ant = IMG_LoadTexture(yep->ren, "../pic/ant1.png")))
 		error_img(1, yep);

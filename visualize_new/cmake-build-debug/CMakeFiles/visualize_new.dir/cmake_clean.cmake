@@ -64,6 +64,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/visualize_new.dir/src/coord.c.o"
   "CMakeFiles/visualize_new.dir/src/error.c.o"
   "CMakeFiles/visualize_new.dir/src/main_viz.c.o"
+  "CMakeFiles/visualize_new.dir/src/move.c.o"
+  "CMakeFiles/visualize_new.dir/src/move2.c.o"
   "CMakeFiles/visualize_new.dir/src/new.c.o"
   "CMakeFiles/visualize_new.dir/src/valid.c.o"
   "CMakeFiles/visualize_new.dir/src/valid_help.c.o"
