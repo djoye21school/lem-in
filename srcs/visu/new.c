@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/lem_in_viz.h"
+#include "../includes/lem_in_viz.h"
 
 t_stack		*new_stack(char *st, int iter, int x, int y)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/lem_in_viz.h"
+#include "../includes/lem_in_viz.h"
 
 void 	calculator(bool coor, bool plmin, t_stack **ant, int i)
 {

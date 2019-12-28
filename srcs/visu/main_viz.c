@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/lem_in_viz.h"
+#include "../includes/lem_in_viz.h"
 
 char 	*is_valid(char *str, t_path *pat)
 {

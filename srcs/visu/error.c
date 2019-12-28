@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/lem_in_viz.h"
+#include "../includes/lem_in_viz.h"
 
 void 	error_st(int i, t_sdl *yep)
 {

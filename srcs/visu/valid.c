@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/lem_in_viz.h"
+#include "../includes/lem_in_viz.h"
 
 int 	strcmp_until(char *s1, char *s2)
 {
