@@ -19,7 +19,7 @@ OBJDIR_VISU	=	objs/visu
 SRCDIR_ALGO	=	srcs/algo
 SRCDIR_VISU	=	srcs/visu
 
-SRC_ALGO	=	main.c algo.c add_data.c
+SRC_ALGO	=	main.c algo.c add_data.c check.c add_room.c lem_go.c
 SRC_VISU	=	
 
 OBJS_ALGO	=	$(addprefix $(OBJDIR_ALGO)/, $(SRC_ALGO:.c=.o))

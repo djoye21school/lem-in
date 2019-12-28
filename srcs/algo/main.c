@@ -6,11 +6,11 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 12:59:53 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 15:22:52 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 15:52:23 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../../includes/lem_in.h"
 
 int				main(int ac, char **av)
 {

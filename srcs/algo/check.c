@@ -6,11 +6,11 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/26 11:57:40 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 14:57:29 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 15:52:50 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../../includes/lem_in.h"
 
 int			check_instruction(char *str)
 {

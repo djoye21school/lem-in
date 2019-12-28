@@ -6,11 +6,11 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 15:54:35 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 12:39:55 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 15:53:03 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../../includes/lem_in.h"
 
 t_head			*lem_go(t_head *head)
 {

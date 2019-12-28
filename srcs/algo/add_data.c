@@ -6,11 +6,11 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 13:51:54 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 15:22:52 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 15:51:49 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "../../includes/lem_in.h"
 
 t_head		*read_file(t_head *head)
 {
