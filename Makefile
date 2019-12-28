@@ -31,12 +31,12 @@ SRCDIR_ALGO	=	srcs/algo
 SRCDIR_VISU	=	srcs/visu
 
 SRC_ALGO	=	main.c algo.c add_data.c check.c add_room.c lem_go.c
-SRC_VISU	=	
+SRC_VISU	=	add_arr.c connect.c coord.c error.c main_viz.c move.c move2.c new.c pomoch.c valid.c valid_help.c vizu.c
 
 OBJS_ALGO	=	$(addprefix $(OBJDIR_ALGO)/, $(SRC_ALGO:.c=.o))
 OBJS_VISU	=	$(addprefix $(OBJDIR_VISU)/, $(SRC_VISU:.c=.o))
 
-all: directory $(NAME)
+all: directory $(NAME) $(VISU)
 
 $(NAME): $(OBJDIR_ALGO) $(LIB) $(OBJS_ALGO) $(INCLUDE)
 	gcc $(FLAGS) -o $@ $(OBJS_ALGO) $(LIBLINK)

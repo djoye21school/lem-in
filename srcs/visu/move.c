@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in_viz.h"
+#include "../../includes/lem_in_viz.h"
 
-char 	*find_name(char *str)
+char		*find_name(char *str)
 {
 	int		i;
 	char	*room;
@@ -33,10 +33,10 @@ char 	*find_name(char *str)
 	return (room);
 }
 
-char 	*record(char **str, t_path *pat, t_stack **ant)
+char		*record(char **str, t_path *pat, t_stack **ant)
 {
 	int		a;
-	char 	*room;
+	char	*room;
 	t_stack	*new;
 
 	if (**str == 'L')
@@ -62,17 +62,17 @@ char 	*record(char **str, t_path *pat, t_stack **ant)
 	return (*str);
 }
 
-void 	update_coor(t_stack **arr, int i)
+void		update_coor(t_stack **arr, int i)
 {
 	arr[i]->px = arr[i]->x;
 	arr[i]->py = arr[i]->y;
 	arr[i]->nx = arr[i]->next->x;
 	arr[i]->ny = arr[i]->next->y;
-	arr[i]->itog_X = 0;
-	arr[i]->itog_Y = 0;
+	arr[i]->itog_x = 0;
+	arr[i]->itog_y = 0;
 }
 
-void	ant_go(t_stack **ant, int i)
+void		ant_go(t_stack **ant, int i)
 {
 	ant[i]->difx = ant[i]->nx - ant[i]->px;
 	ant[i]->dify = ant[i]->ny - ant[i]->py;
@@ -86,7 +86,7 @@ void	ant_go(t_stack **ant, int i)
 		calculator(Y, MIN, ant, i);
 }
 
-int 	draw_ants(t_path *pat, t_sdl *yep, t_stack **ant)
+int			draw_ants(t_path *pat, t_sdl *yep, t_stack **ant)
 {
 	int i;
 
@@ -111,35 +111,3 @@ int 	draw_ants(t_path *pat, t_sdl *yep, t_stack **ant)
 	end(ant, pat->ant);
 	return (1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

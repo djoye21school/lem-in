@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in_viz.h"
+#include "../../includes/lem_in_viz.h"
 
 t_stack		*new_stack(char *st, int iter, int x, int y)
 {
@@ -28,8 +28,8 @@ t_stack		*new_stack(char *st, int iter, int x, int y)
 
 int			add_pat(t_stack *new, t_path *pat)
 {
-	t_stack **aaa;
-	int r;
+	t_stack	**aaa;
+	int		r;
 
 	r = 0;
 	if (pat->now == pat->size - 1)
@@ -50,10 +50,10 @@ int			add_pat(t_stack *new, t_path *pat)
 	return (0);
 }
 
-char 		*ft_strcut(char *str, char d)
+char		*ft_strcut(char *str, char d)
 {
-	char *s;
-	int i;
+	char	*s;
+	int		i;
 
 	i = 0;
 	while (str[i] && str[i] != d)
@@ -70,10 +70,9 @@ char 		*ft_strcut(char *str, char d)
 	return (s);
 }
 
-SDL_Rect 	init_cor(int x, int y, int w, int h)
+SDL_Rect	init_cor(int x, int y, int w, int h)
 {
 	SDL_Rect	r;
-
 
 	r.x = x + w / 2;
 	r.y = y + h / 2;

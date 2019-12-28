@@ -6,13 +6,13 @@
 /*   By: sdoughnu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 12:23:43 by sdoughnu          #+#    #+#             */
-/*   Updated: 2019/12/09 12:24:05 by sdoughnu         ###   ########.fr       */
+/*   Updated: 2019/12/28 17:24:17 by sdoughnu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in_viz.h"
+#include "../../includes/lem_in_viz.h"
 
-void 	error_st(int i, t_sdl *yep)
+void	error_st(int i, t_sdl *yep)
 {
 	const char *str;
 
@@ -20,7 +20,7 @@ void 	error_st(int i, t_sdl *yep)
 	ft_putstr(str);
 	if (i)
 		quit(yep);
-	exit (0);
+	exit(0);
 }
 
 void	quit(t_sdl *yep)

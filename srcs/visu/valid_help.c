@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in_viz.h"
+#include "../../includes/lem_in_viz.h"
 
-char    *strchr_until(const char *s, int c)
+char		*strchr_until(const char *s, int c)
 {
-	char    *arr;
+	char	*arr;
 
 	arr = (char*)s;
 	while (*arr && *arr != '\n')
@@ -26,7 +26,7 @@ char    *strchr_until(const char *s, int c)
 	return (*arr == (unsigned char)c ? arr : NULL);
 }
 
-char	*skip_com2(char *str)
+char		*skip_com2(char *str)
 {
 	while (*str)
 	{
@@ -40,7 +40,7 @@ char	*skip_com2(char *str)
 	return (str);
 }
 
-char	*is_dig(char *str)
+char		*is_dig(char *str)
 {
 	while (*str && (*str == ' ' || *str == '\t'))
 		str++;
@@ -55,34 +55,26 @@ char	*is_dig(char *str)
 	return (str);
 }
 
-char 	*is_start(char *str, t_path *pat)
+char		*is_start(char *str, t_path *pat)
 {
 	t_stack		*a;
-	int x;
-	int y;
+	int			x;
+	int			y;
 
 	if (*(str - 1) == '#' && *(str - 2) == '#' && !strcmp_until(str, "start"))
 	{
-		if (pat->start.name)
-			return (NULL);
 		str = skip_text(str);
 		str = skip_com2(str);
-		if (!str || strchr_until(str, '-') || *str == 'L' || *str == '#')
-			return (NULL);
 		pat->start.name = ft_strcut(str, ' ');
 		while (*str && *str != ' ')
 			str++;
 		while (*str && (*str == ' ' || *str == '\t'))
 			str++;
 		x = ft_atoi(str);
-		if (!(str = is_dig(str)))
-			return (NULL);
+		str = is_dig(str);
 		y = ft_atoi(str);
-		if (!(str = is_dig(str)))
-			return (NULL);
-		pat->start.i = pat->now + 1;
-		pat->start.x = x;
-		pat->start.y = y;
+		str = is_dig(str);
+		pom1(pat, x, y);
 		if (!(a = new_stack(pat->start.name, pat->start.i, x, y)))
 			return (NULL);
 		if (add_pat(a, pat))
@@ -92,34 +84,26 @@ char 	*is_start(char *str, t_path *pat)
 	return (str - 2);
 }
 
-char 	*is_end(char *str, t_path *pat)
+char		*is_end(char *str, t_path *pat)
 {
 	t_stack		*a;
+	int			x;
+	int			y;
 
 	if (*(str - 1) == '#' && *(str - 2) == '#' && !strcmp_until(str, "end"))
 	{
-		int x;
-		int y;
-		if (pat->end.name)
-			return (NULL);
 		str = skip_text(str);
 		str = skip_com2(str);
-		if (!str || strchr_until(str, '-') || *str == 'L' || *str == '#')
-			return (NULL);
 		pat->end.name = ft_strcut(str, ' ');
 		while (*str && *str != ' ')
 			str++;
 		while (*str && (*str == ' ' || *str == '\t'))
 			str++;
 		x = ft_atoi(str);
-		if (!(str = is_dig(str)))
-			return (NULL);
+		str = is_dig(str);
 		y = ft_atoi(str);
-		if (!(str = is_dig(str)))
-			return (NULL);
-		pat->end.i = pat->now + 1;
-		pat->end.x = x;
-		pat->end.y = y;
+		str = is_dig(str);
+		pom2(pat, x, y);
 		if (!(a = new_stack(pat->end.name, pat->end.i, x, y)))
 			return (NULL);
 		if (add_pat(a, pat))

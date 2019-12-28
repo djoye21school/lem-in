@@ -6,29 +6,29 @@
 /*   By: sdoughnu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/24 15:43:16 by sdoughnu          #+#    #+#             */
-/*   Updated: 2019/12/25 13:04:27 by sdoughnu         ###   ########.fr       */
+/*   Updated: 2019/12/28 17:41:17 by sdoughnu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/lem_in_viz.h"
 
-int 		check(t_stack *arr)
+int			check(t_stack *arr)
 {
 	if ((arr->x > WIN_W) || (arr->y > WIN_H))
 	{
 		ft_putstr("Invalid coordinate\n");
 		return (1);
 	}
-	if (arr->x + house_w > WIN_W)
-		arr->x = arr->x - (arr->x + house_w - WIN_W);
-	if (arr->y + house_h > WIN_H)
-		arr->y = arr->y - (arr->y + house_h - WIN_H);
+	if (arr->x + HOUSE_W > WIN_W)
+		arr->x = arr->x - (arr->x + HOUSE_W - WIN_W);
+	if (arr->y + HOUSE_H > WIN_H)
+		arr->y = arr->y - (arr->y + HOUSE_H - WIN_H);
 	return (0);
 }
 
-int 		new_coor(t_path *pat)
+int			new_coor(t_path *pat)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (i <= pat->now)
@@ -40,7 +40,7 @@ int 		new_coor(t_path *pat)
 	return (0);
 }
 
-t_stack 	*find_stack(t_path *pat, char *name)
+t_stack		*find_stack(t_path *pat, char *name)
 {
 	int i;
 
@@ -54,31 +54,23 @@ t_stack 	*find_stack(t_path *pat, char *name)
 	return (NULL);
 }
 
-int 		draw_line(t_path *pat, t_sdl *yep)
+int			draw_line(t_path *pat, t_sdl *yep)
 {
-	int i;
-	t_stack *stack;
-	t_stack *buf;
-	t_stack	*find;
+	int		i;
+	t_stack	*s;
+	t_stack	*buf;
+	t_stack	*f;
 
 	i = 0;
 	while (i <= pat->now)
 	{
-		stack = pat->arr[i];
-		buf = stack->next;
+		s = pat->arr[i];
+		buf = s->next;
 		while (buf)
 		{
-			if ((find = find_stack(pat, buf->name)))
+			if ((f = find_stack(pat, buf->name)))
 			{
-				if (SDL_RenderDrawLine(yep->ren, stack->x + onx, stack->y + ony, find->x + onx, find->y + ony))
-					return (0);
-				if (SDL_RenderDrawLine(yep->ren, stack->x + onx + 1, stack->y + ony, find->x + onx + 1, find->y + ony))
-					return (0);
-				if (SDL_RenderDrawLine(yep->ren, stack->x + onx, stack->y + ony + 1, find->x + onx, find->y + ony + 1))
-					return (0);
-				if (SDL_RenderDrawLine(yep->ren, stack->x + onx - 1, stack->y + ony, find->x + onx - 1, find->y + ony))
-					return (0);
-				if (SDL_RenderDrawLine(yep->ren, stack->x + onx, stack->y + ony - 1, find->x + onx, find->y + ony - 1))
+				if (!pepe(yep, s, f))
 					return (0);
 			}
 			buf = buf->next;
@@ -88,7 +80,7 @@ int 		draw_line(t_path *pat, t_sdl *yep)
 	return (1);
 }
 
-char 	*move_ant(t_path *pat, t_sdl *yep, char **str, t_stack **ant)
+char		*move_ant(t_path *pat, t_sdl *yep, char **str, t_stack **ant)
 {
 	if (!*str)
 		return (0);

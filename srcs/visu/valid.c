@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lem_in_viz.h"
+#include "../../includes/lem_in_viz.h"
 
-int 	strcmp_until(char *s1, char *s2)
+int			strcmp_until(char *s1, char *s2)
 {
 	while (*s1 && *s2)
 	{
@@ -26,7 +26,7 @@ int 	strcmp_until(char *s1, char *s2)
 	return (1);
 }
 
-char 	*skip_text(char *str)
+char		*skip_text(char *str)
 {
 	while (*str && *str != '\n')
 		str++;
@@ -35,7 +35,7 @@ char 	*skip_text(char *str)
 	return (str);
 }
 
-char 	*skip_comm(char *str, int *ant)
+char		*skip_comm(char *str, int *ant)
 {
 	while (!ft_isdigit(*str))
 	{
@@ -62,10 +62,10 @@ char 	*skip_comm(char *str, int *ant)
 	return (str);
 }
 
-char 	*ants(char *str, int *ant)
+char		*ants(char *str, int *ant)
 {
 	if (!(str = skip_comm(str, ant)))
-	    return (NULL);
+		return (NULL);
 	*ant = ft_atoi(str);
 	while (*str && *str != '\n')
 	{
@@ -78,7 +78,7 @@ char 	*ants(char *str, int *ant)
 	return (str);
 }
 
-char 	*add_arr_room(t_path *pat, char *str)
+char		*add_arr_room(t_path *pat, char *str)
 {
 	while (*str)
 	{
@@ -106,40 +106,3 @@ char 	*add_arr_room(t_path *pat, char *str)
 	}
 	return (str);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
