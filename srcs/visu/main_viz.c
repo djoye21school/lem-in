@@ -36,8 +36,6 @@ char		*is_valid(char *str, t_path *pat)
 	return (str);
 }
 
-
-
 char		*output_lem_in(void)
 {
 	char buf[1000000];
@@ -49,7 +47,7 @@ char		*output_lem_in(void)
 	{
 		tmp = str;
 		str = ft_strjoin(tmp, buf);
-		free (tmp);
+		free(tmp);
 	}
 	return (str);
 }
