@@ -36,23 +36,21 @@ char		*is_valid(char *str, t_path *pat)
 	return (str);
 }
 
+
+
 char		*output_lem_in(void)
 {
+	char buf[1000000];
 	char *str;
 	char *tmp;
-	char *del;
 
-	if (!(tmp = ft_strnew(10000)))
-		return (NULL);
-	str = NULL;
-	while (read(0, tmp, 10000) > 0)
+	str = ft_strnew(1);
+	while (read(0, buf, 1000000) > 0)
 	{
-		del = str;
-		str = ft_strjoin(str, tmp);
-		del ? ft_strdel(&del) : NULL;
-		ft_bzero(tmp, 10000);
+		tmp = str;
+		str = ft_strjoin(tmp, buf);
+		free (tmp);
 	}
-	ft_strdel(&tmp);
 	return (str);
 }
 

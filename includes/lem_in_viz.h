@@ -13,7 +13,6 @@
 #ifndef LEM_IN_VIZ_H
 # define LEM_IN_VIZ_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include "SDL.h"
 # include "SDL_image.h"
