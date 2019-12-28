@@ -6,20 +6,20 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 13:51:54 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 13:17:39 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 15:22:52 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-t_head		*read_file(t_head *head, int fd)
+t_head		*read_file(t_head *head)
 {
 	char	buf[BUFF_SIZE + 1];
 	int		len;
 	char	*tmp;
 
 	head->instruction = NULL;
-	while ((len = read(fd, buf, BUFF_SIZE)))
+	while ((len = read(0, buf, BUFF_SIZE)))
 	{
 		buf[len] = '\0';
 		if (!head->instruction)
@@ -28,6 +28,8 @@ t_head		*read_file(t_head *head, int fd)
 		head->instruction = ft_strjoin(tmp, buf);
 		free(tmp);
 	}
+	if (!head->instruction)
+		exit(write(2, "ERROR: not valid file\n", 22) - 22);
 	return (head);
 }
 

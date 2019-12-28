@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/26 11:57:40 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 13:36:26 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 14:57:29 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int			check_instruction(char *str)
 	int		i;
 
 	i = 0;
+	if (!(str[i]))
+		exit(write(2, "ERROR instruction\n", 18) - 18);
 	while (str[i])
 		if ((i && str[i] == '\n' && str[i - 1] == '\n'))
 			exit(write(2, "ERROR instruction\n", 18) - 18);
@@ -60,7 +62,7 @@ int			check_end(t_head *head)
 	return (0);
 }
 
-int			check_start_end(t_head *head, int fd)
+int			check_start_end(t_head *head)
 {
 	int		i;
 	int		lem;
@@ -80,7 +82,7 @@ int			check_start_end(t_head *head, int fd)
 				write(1, "-end", 4);
 			}
 			write(1, "\n", 1);
-			exit(close(fd));
+			exit(0);
 		}
 		i++;
 	}
