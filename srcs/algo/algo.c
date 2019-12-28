@@ -6,11 +6,11 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 19:54:37 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 15:52:36 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/27 16:11:17 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/lem_in.h"
+#include "lem_in.h"
 
 t_room			*add_queue(t_head *head)
 {

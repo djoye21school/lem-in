@@ -1,8 +1,19 @@
-CC		=	clang
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: djoye <marvin@42.fr>                       +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/12/28 17:11:11 by djoye             #+#    #+#              #
+#    Updated: 2019/12/28 17:12:20 by djoye            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		=	lem-in
-FLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
+FLAGS		=	-Wall -Wextra -Werror
 VISU		=	visu
-LIBDIR		=	libft
+LIBDIR		=	./libft
 LIBLINK		=	-L $(LIBDIR) -lft
 LIB 		=	$(LIBDIR)/libft.a
 LIB_VISU	=	-L ~/.brew/lib -lSDL2 -lSDL2_ttf -lSDL2_image
@@ -25,22 +36,22 @@ SRC_VISU	=
 OBJS_ALGO	=	$(addprefix $(OBJDIR_ALGO)/, $(SRC_ALGO:.c=.o))
 OBJS_VISU	=	$(addprefix $(OBJDIR_VISU)/, $(SRC_VISU:.c=.o))
 
-all: directory $(NAME) $(VISU) Makefile
+all: directory $(NAME)
 
 $(NAME): $(OBJDIR_ALGO) $(LIB) $(OBJS_ALGO) $(INCLUDE)
-	@$(CC) $(FLAGS) -o $@ $(OBJS_ALGO) $(LIBLINK)
+	gcc $(FLAGS) -o $@ $(OBJS_ALGO) $(LIBLINK)
 
 $(VISU): $(OBJDIR_VISU) $(LIB) $(OBJS_VISU) $(INCLUDE)
-	@$(CC) $(FLAGS) -o $@ $(OBJS_VISU) $(LIBLINK) $(LIB_VISU)
+	gcc $(FLAGS) -o $@ $(OBJS_VISU) $(LIBLINK) $(LIB_VISU)
 
 $(LIB):
-	@make -C $(LIBDIR)
+	make -C $(LIBDIR)
 
 $(OBJDIR_ALGO)/%.o: $(SRCDIR_ALGO)/%.c
-	@$(CC) $(FLAGS) -c $^ -o $@ $(INCLUDES)
+	gcc $(FLAGS) -c $^ -o $@ $(INCLUDES)
 
 $(OBJDIR_VISU)/%.o: $(SRCDIR_VISU)/%.c
-	@$(CC) $(FLAGS) -c $^ -o $@ $(INCLUDES) $(INCLUDES_VISU)
+	gcc $(FLAGS) -c $^ -o $@ $(INCLUDES) $(INCLUDES_VISU)
 
 directory: $(OBJDIR) $(OBJDIR_ALGO) $(OBJDIR_VISU)
 
@@ -48,19 +59,19 @@ $(OBJDIR):
 	mkdir -p $(OBJDIR)
 
 $(OBJDIR_ALGO):
-	@mkdir -p $(OBJDIR_ALGO)
+	mkdir -p $(OBJDIR_ALGO)
 
 $(OBJDIR_VISU):
-	@mkdir -p $(OBJDIR_VISU)
+	mkdir -p $(OBJDIR_VISU)
 
 clean:
-	@rm -rf $(OBJDIR)s
-	@make -C $(LIBDIR) clean
+	rm -rf $(OBJDIR)
+	make -C $(LIBDIR) clean
 
 fclean: clean
-	@rm -f $(NAME)
-	@rm -f $(VISU)
-	@make -C $(LIBDIR) fclean
+	rm -f $(NAME)
+	rm -f $(VISU)
+	make -C $(LIBDIR) fclean
 
 re: fclean all
 

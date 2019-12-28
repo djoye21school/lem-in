@@ -6,11 +6,11 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/26 12:04:01 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 15:52:12 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 12:39:05 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/lem_in.h"
+#include "lem_in.h"
 
 t_room		*add_room(t_head *head, char *str)
 {

@@ -6,7 +6,7 @@
 #    By: djoye <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/08 19:31:57 by djoye             #+#    #+#              #
-#    Updated: 2019/09/11 22:32:40 by djoye            ###   ########.fr        #
+#    Updated: 2019/12/28 16:55:32 by djoye            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,18 +37,18 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ) libft.h
-	@ar rc $(NAME) $(OBJ)
+	ar rc $(NAME) $(OBJ)
 
 .c.o:
-	@gcc $(FLAGS) -c $<
+	gcc $(FLAGS) -c $<
 
 .PHONY: clean
 clean:
-	@/bin/rm -f $(OBJ)
+	rm -f $(OBJ)
 
 .PHONY: fclean
 fclean: clean
-	@/bin/rm -f $(NAME)
+	rm -f $(NAME)
 
 .PHONY: re
 re: fclean all
