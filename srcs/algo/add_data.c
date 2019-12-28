@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 13:51:54 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/27 16:56:25 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 13:17:39 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,7 @@ t_head		*read_file(t_head *head, int fd)
 	return (head);
 }
 
-int			skip(char **str, int *i)
-{
-	while (str[*i][0] == '#')
-		(*i)++;
-	return (1);
-}
-
-int			count_lem(char *str)
+int			max_int(char *str)
 {
 	double	nb;
 	int		i;
@@ -48,7 +41,7 @@ int			count_lem(char *str)
 	while (str[i])
 		nb = nb * 10 + str[i++] - '0';
 	if (!ft_str_is_numeric(str) || nb != (double)ft_atoi(str))
-		exit(write(1, "error: no valid ants\n", 21) - 21);
+		exit(write(2, "ERROR: number not valid\n", 24) - 24);
 	return ((int)nb);
 }
 
@@ -57,14 +50,15 @@ t_head		*add_data(t_head *head)
 	int		i;
 
 	i = -1;
+	head->start = NULL;
 	while (head->split[++i])
 	{
-		if (i == 0 && skip(head->split, &i))
-			head->count_lem = count_lem(head->split[i]);
-		else if (ft_strequ("##start", head->split[i]) && skip(head->split, &i))
-			head->start = add_room(head, head->split[i]);
-		else if (ft_strequ("##end", head->split[i]) && skip(head->split, &i))
-			head->end = add_room(head, head->split[i]);
+		if (i == 0)
+			head->count_lem = max_int(head->split[i]);
+		else if (ft_strequ("##start", head->split[i]))
+			head->start = add_room(head, head->split[++i]);
+		else if (ft_strequ("##end", head->split[i]))
+			head->end = add_room(head, head->split[++i]);
 		else if (head->split[i][0] == '#')
 			continue ;
 		else if (head->split[i][find_chr(head->split[i], 0, ' ')] == ' ')
@@ -72,7 +66,7 @@ t_head		*add_data(t_head *head)
 		else if (head->split[i][find_chr(head->split[i], 0, '-')] == '-')
 			add_connect(head, head->split[i]);
 		else
-			exit(write(1, "error_read\n", 10) - 10);
+			exit(write(2, "ERROR read\n", 11) - 11);
 	}
 	return (head);
 }

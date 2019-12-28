@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/26 12:04:01 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/27 20:51:33 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 12:39:05 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_room		*add_room(t_head *head, char *str)
 	room->visit = 0;
 	i = find_chr(str, 0, ' ');
 	if ((l = find_chr(str, i + 1, ' ')) <= i + 1 || ft_strlen(str) <= l + 1)
-		exit(write(1, "ERROR room param\n", 17) - 17);
+		exit(write(2, "ERROR room param\n", 17) - 17);
 	room_param(room, ft_strsub(str, 0, i), ft_strsub(str, i + 1, (l - i - 1)),
 	ft_strsub(str, l + 1, ft_strlen(str) - l - 1));
 	check_replay(head, room->name, room->x, room->y);
@@ -45,10 +45,10 @@ t_room		*room_param(t_room *room, char *str, char *x, char *y)
 {
 	if (str[0] == 'L' || find_chr(str, 0, '-') < (int)ft_strlen(str) ||
 	!ft_str_is_numeric(x) || !ft_str_is_numeric(y))
-		exit(write(1, "ERROR room param\n", 17) - 17);
+		exit(write(2, "ERROR room param\n", 17) - 17);
 	room->name = str;
-	room->x = ft_atoi(x);
-	room->y = ft_atoi(y);
+	room->x = max_int(x);
+	room->y = max_int(y);
 	free(x);
 	free(y);
 	return (room);
@@ -62,7 +62,7 @@ t_room		*find_room(t_head *head, char *buf)
 	while (tmp && !ft_strequ(tmp->name, buf))
 		tmp = tmp->follow;
 	if (!tmp || !ft_strequ(tmp->name, buf))
-		exit(write(1, "ERROR: room not found\n", 22) - 22);
+		exit(write(2, "ERROR: room not found\n", 22) - 22);
 	free(buf);
 	return (tmp);
 }
@@ -82,7 +82,7 @@ t_room		*connect(t_head *head, t_room *first, t_room *second)
 	while (tmp[i])
 	{
 		if (tmp[i] == second)
-			exit(write(1, "ERROR: bad room link\n", 21) - 21);
+			exit(write(2, "ERROR: bad room link\n", 21) - 21);
 		i++;
 	}
 	tmp[i] = second;

@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/26 11:57:40 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/27 20:51:31 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 13:36:26 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int			check_instruction(char *str)
 	i = 0;
 	while (str[i])
 		if ((i && str[i] == '\n' && str[i - 1] == '\n'))
-			exit(write(1, "ERROR instruction\n", 18) - 18);
+			exit(write(2, "ERROR instruction\n", 18) - 18);
 		else
 			i++;
 	return (i);
@@ -34,8 +34,10 @@ int			check_replay(t_head *head, char *str, int x, int y)
 	tmp = head->first;
 	while (tmp && tmp->follow)
 	{
-		if (ft_strequ(tmp->name, str) || (tmp->x == x && tmp->y == y))
-			exit(write(1, "ERROR: duplicate room\n", 22) - 22);
+		if (ft_strequ(tmp->name, str))
+			exit(write(2, "ERROR: duplicate room\n", 22) - 22);
+		if (tmp->x == x && tmp->y == y)
+			exit(write(2, "ERROR: duplicate coord\n", 23) - 23);
 		tmp = tmp->follow;
 	}
 	return (0);
@@ -64,8 +66,8 @@ int			check_start_end(t_head *head, int fd)
 	int		lem;
 
 	i = 0;
-	if (!head->start->link)
-		exit(write(1, "ERROR: not valid route\n", 22) - 22);
+	if (!head->start || !head->start->link)
+		exit(write(2, "ERROR: not valid route\n", 23) - 23);
 	while (head->start->link[i])
 	{
 		if (head->start->link[i] == head->end)
