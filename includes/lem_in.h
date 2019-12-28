@@ -6,7 +6,7 @@
 /*   By: djoye <djoye@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/27 14:29:27 by djoye             #+#    #+#             */
-/*   Updated: 2019/12/28 11:58:27 by djoye            ###   ########.fr       */
+/*   Updated: 2019/12/28 15:45:45 by djoye            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define BUFF_SIZE 1000000
 
-# include "./libft/libft.h"
+# include "../libft/libft.h"
 # include <string.h>
 # include <ctype.h>
 # include <unistd.h>
@@ -23,7 +23,6 @@
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-# include <stdio.h>
 
 typedef struct		s_room
 {
@@ -57,7 +56,7 @@ typedef struct		s_head
 	t_room			**last_ant;
 }					t_head;
 
-t_head				*read_file(t_head *head, int fd);
+t_head				*read_file(t_head *head);
 int					check_instruction(char *str);
 t_head				*add_data(t_head *head);
 int					find_chr(char *str, int i, char c);
@@ -68,7 +67,7 @@ int					check_replay(t_head *head, char *str, int x, int y);
 t_head				*add_connect(t_head *head, char *str);
 t_room				*find_room(t_head *head, char *buf);
 t_room				*connect(t_head *head, t_room *first, t_room *second);
-int					check_start_end(t_head *head, int fd);
+int					check_start_end(t_head *head);
 t_head				*create_routes(t_head *head);
 t_head				*algo(t_head *head);
 int					check_end(t_head *head);
